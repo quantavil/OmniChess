@@ -52,7 +52,9 @@ A.C.A.S/
 - **Pychess Rendering Fix:** Replaced `Math.floor` with `Math.round` in `getBoardDimensionsFromSize` to resolve subpixel truncation errors that broke rank 8 piece extraction. Added fallback to CSS transform-based coordinate parsing in `pychess.org` adapter when `cgKey` is missing.
 - **Picture-in-Picture Engine Name Display:** Added a helper to map engine keys to human-friendly names and passed it to `updatePipData` during calculations/new games, replacing static 'A.C.A.S' text on the PIP window header.
 - **Crazyhouse Drop Move Parsing:** Added support in `engineMessageProcessor.js` to parse drop moves (e.g. `P@e4`) using a new `dropRegex` and handle them safely in `AcasInstance.js`'s piece evaluation.
+- **Userscript Compatibility:** Ported and restored missing site adapters (chess.org, papergames.io, immortal.game, chess.net, freechess.club, play.chessclub.com, app.edchess.io, and the GUI/backend pages) to the userscript repository.
+- **AutoMove Jitter & Path Presets:** Implemented dynamic click release delays (randomized 40ms to 110ms) and Bezier mouse path presets (fast-flicker, slow-steady, and tired-drag profiles) in the autoMove logic to enhance human simulation.
+- **Documentation & Credits:** Updated main and userscript READMEs to attribute credit to the original script (HKR/Psyyke's greasyfork) and detail our new enhancements (modular structure, local CommLink, adaptive depth, auto-move jitter, presets).
 
 ## Blunders
 - None logged yet.
-

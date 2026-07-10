@@ -6,7 +6,7 @@
 > A.C.A.S is currently in development. Expect bugs, especially on variants.
 
 > [!NOTE]
-> The userscript development repository is located at [quantavil/userscript](https://github.com/quantavil/userscript/tree/main/ACAS-bot). Please refer to it for the userscript source code and build instructions.
+> The userscript development repository is located at [quantavil/userscript](https://github.com/quantavil/userscript/tree/main/ACAS-bot). Please refer to it for the userscript source code and build instructions. This project is a modularized, optimized, and heavily enhanced fork of the original [A.C.A.S by HKR/Psyyke](https://greasyfork.org/en/scripts/459137-1-chess-assistant-a-c-a-s-advanced-chess-assistance-system).
 
 A.C.A.S (Advanced Chess Assistance System) is an open-source chess assistant (**not a chess cheat**), designed to help you make better moves using a chess engine. Just install the userscript, open the A.C.A.S GUI, and you're ready to go. No downloads necessary!
 
@@ -30,7 +30,8 @@ A.C.A.S (Advanced Chess Assistance System) is an open-source chess assistant (**
 * Audio TTS suggestions with adjustable speed
 * Floating panel for stability and faster calculation
 * Adaptive thinking depth (thinks deeper when losing, shallower when winning)
-* Humanized move methods (Click, Drag, or Natural Hybrid that alternates styles and utilizes curved Bezier trajectories)
+* Humanized move methods (Click, Drag, or Natural Hybrid that alternates click/drag styles, utilizes curved Bezier trajectories with speed presets like fast-flicker/slow-steady/tired-drag, and applies randomized click release delay jitter)
+* Modular userscript code structure built on Bun, with built-in CommLink eliminating external remote library dependencies
 * Customizable themes (colors, fonts, textures)
 * Chess variants supported (chess960, Fairy Stockfish variants like Crazyhouse, Horde, and Atomic - including full drop move indicators and overlay rendering for Crazyhouse)
 * Picture-in-Picture (PiP) video stream overlay, dynamically displaying the current active engine name on the header
