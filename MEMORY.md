@@ -55,6 +55,7 @@ A.C.A.S/
 - **Userscript Compatibility:** Ported and restored missing site adapters (chess.org, papergames.io, immortal.game, chess.net, freechess.club, play.chessclub.com, app.edchess.io, and the GUI/backend pages) to the userscript repository.
 - **AutoMove Jitter & Path Presets:** Implemented dynamic click release delays (randomized 40ms to 110ms) and Bezier mouse path presets (fast-flicker, slow-steady, and tired-drag profiles) in the autoMove logic to enhance human simulation.
 - **Documentation & Credits:** Updated main and userscript READMEs to attribute credit to the original script (HKR/Psyyke's greasyfork) and detail our new enhancements (modular structure, local CommLink, adaptive depth, auto-move jitter, presets).
+- **Userscript Code Audit & Performance Overhaul:** Resolved all 20 code audit findings (including null click crashes, classList errors, unguarded wrappers, coordinates transposition, underpromotion clicking, and secure origin checks) and dramatically reduced CPU load by optimization of the FEN scanner DOM calls (from 17 scans to 1) and CommLink shared receiver polling.
 
 ## Blunders
 - None logged yet.
