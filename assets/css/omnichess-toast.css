@@ -1,4 +1,4 @@
-#acas-toast-container {
+#omnichess-toast-container {
     display: flex;
     flex-direction: column;
     gap: 8px;
@@ -12,7 +12,7 @@
 }
 
 @media (max-width: 480px) {
-    #acas-toast-container {
+    #omnichess-toast-container {
         top: 10px;
         right: 10px;
         left: 10px;
@@ -21,7 +21,7 @@
     }
 }
 
-.acas-toast {
+.omnichess-toast {
     min-width: 220px;
     color: #e4e4e7;
     background-color: #29292e;
@@ -37,38 +37,38 @@
     gap: 10px;
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
     box-sizing: border-box;
-    animation: acas-toast-fadein 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation: omnichess-toast-fadein 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-.acas-toast-fadeout {
-    animation: acas-toast-fadeout 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+.omnichess-toast-fadeout {
+    animation: omnichess-toast-fadeout 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-.acas-toast-pulse {
-    animation: acas-toast-pulse 0.25s ease-in-out;
+.omnichess-toast-pulse {
+    animation: omnichess-toast-pulse 0.25s ease-in-out;
 }
 
-.acas-toast-success {
+.omnichess-toast-success {
     border-left: 3px solid #10b981;
 }
 
-.acas-toast-message {
+.omnichess-toast-message {
     border-left: 3px solid #3b82f6;
 }
 
-.acas-toast-warning {
+.omnichess-toast-warning {
     border-left: 3px solid #f59e0b;
 }
 
-.acas-toast-error {
+.omnichess-toast-error {
     border-left: 3px solid #ef4444;
 }
 
-.acas-toast-instance {
+.omnichess-toast-instance {
     border-left: 3px solid #a1a1aa;
 }
 
-.acas-toast-icon {
+.omnichess-toast-icon {
     font-size: 16px;
     width: 20px;
     height: 20px;
@@ -80,7 +80,7 @@
     line-height: 1;
 }
 
-.acas-toast-content {
+.omnichess-toast-content {
     text-align: left;
     font-size: 13px;
     line-height: 1.4;
@@ -89,14 +89,14 @@
     flex-grow: 1;
 }
 
-.acas-toast-content small {
+.omnichess-toast-content small {
     display: block;
     font-size: 11px;
     opacity: 0.7;
     margin-top: 2px;
 }
 
-.acas-toast-close-btn {
+.omnichess-toast-close-btn {
     position: absolute;
     top: 8px;
     right: 8px;
@@ -117,19 +117,19 @@
     box-sizing: border-box;
 }
 
-.acas-toast-close-btn:hover {
+.omnichess-toast-close-btn:hover {
     opacity: 1;
     color: #ffffff;
     background-color: rgba(255, 255, 255, 0.1);
 }
 
-.acas-toast-close-btn.highlight {
+.omnichess-toast-close-btn.highlight {
     background-color: #f59e0b;
     color: #1f1f23;
     opacity: 1;
 }
 
-.acas-toast-progress-container {
+.omnichess-toast-progress-container {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -138,33 +138,33 @@
     background-color: rgba(255, 255, 255, 0.05);
 }
 
-.acas-toast-progress-bar {
+.omnichess-toast-progress-bar {
     height: 100%;
     width: 0%;
     transition: width 0.1s linear;
 }
 
-.acas-toast-success .acas-toast-progress-bar {
+.omnichess-toast-success .omnichess-toast-progress-bar {
     background-color: #10b981;
 }
 
-.acas-toast-message .acas-toast-progress-bar {
+.omnichess-toast-message .omnichess-toast-progress-bar {
     background-color: #3b82f6;
 }
 
-.acas-toast-warning .acas-toast-progress-bar {
+.omnichess-toast-warning .omnichess-toast-progress-bar {
     background-color: #f59e0b;
 }
 
-.acas-toast-error .acas-toast-progress-bar {
+.omnichess-toast-error .omnichess-toast-progress-bar {
     background-color: #ef4444;
 }
 
-.acas-toast-instance .acas-toast-progress-bar {
+.omnichess-toast-instance .omnichess-toast-progress-bar {
     background-color: #a1a1aa;
 }
 
-@keyframes acas-toast-fadein {
+@keyframes omnichess-toast-fadein {
     from {
         transform: translateY(-20px);
         opacity: 0;
@@ -175,7 +175,7 @@
     }
 }
 
-@keyframes acas-toast-fadeout {
+@keyframes omnichess-toast-fadeout {
     from {
         transform: translateY(0);
         opacity: 1;
@@ -186,7 +186,7 @@
     }
 }
 
-@keyframes acas-toast-pulse {
+@keyframes omnichess-toast-pulse {
     0%, 100% {
         transform: scale(1);
     }

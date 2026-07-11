@@ -25,7 +25,7 @@ async function initializeDatabase() {
     const gmConfigKey = USERSCRIPT_SHARED_VARS.gmConfigKey;
     const tempValueIndicator = USERSCRIPT_SHARED_VARS.tempValueIndicator;
 
-    // add AcasConfig value if it doesn't exist already
+    // add OmniChessConfig value if it doesn't exist already
     await initDbValue(gmConfigKey, { 'global': { 'chessEngineProfile': 'default' } });
 
     await MIGRATE_OUTDATED_PROFILE_KEYS(); // migrates old profile keys to new format if necessary

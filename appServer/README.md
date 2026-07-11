@@ -1,8 +1,8 @@
-# Local Calculation Server (for A.C.A.S)
+# Local Calculation Server (for OmniChess)
 
-Please visit the GitHub for more details: https://github.com/quantavil/A.C.A.S
+Please visit the GitHub for more details: https://github.com/quantavil/OmniChess
 
-This file basically just lists the LICENSE and the dependencies A.C.A.S might use.
+This file basically just lists the LICENSE and the dependencies OmniChess might use.
 
 ## Developing / Building
 
@@ -19,12 +19,12 @@ This program hosts a local WebSocket server on your computer. While local server
 
 ## Dependencies
 
-- [Fairy Stockfish WASM](https://github.com/fairy-stockfish/fairy-stockfish.wasm) – the chess engine of A.C.A.S
-- [Stockfish WASM](https://github.com/nmrugg/stockfish.js/) – another chess engine of A.C.A.S
-- [ZeroFish](https://github.com/schlawg/zerofish) – WASM port of Lc0 and the latest Stockfish, another chess engine of A.C.A.S
+- [Fairy Stockfish WASM](https://github.com/fairy-stockfish/fairy-stockfish.wasm) – the chess engine of OmniChess
+- [Stockfish WASM](https://github.com/nmrugg/stockfish.js/) – another chess engine of OmniChess
+- [ZeroFish](https://github.com/schlawg/zerofish) – WASM port of Lc0 and the latest Stockfish, another chess engine of OmniChess
 - [Maia-Chess](https://github.com/CSSLab/maia-chess) – legit looking weights for Lc0
 - [Maia-Platform-Frontend](https://github.com/CSSLab/maia-platform-frontend) – source for the Maia 2 engine
-- [Lozza](https://github.com/op12no2/lozza) – another chess engine of A.C.A.S
+- [Lozza](https://github.com/op12no2/lozza) – another chess engine of OmniChess
 - [COI-Serviceworker](https://github.com/gzuidhof/coi-serviceworker) – allowing WASM on GitHub pages, extremely important library
 - [ChessgroundX](https://github.com/gbtami/chessgroundx) – for displaying a board on the GUI. Modified the library a bit
 - [FileSaver](http://purl.eligrey.com/github/FileSaver.js) – for saving the config file
@@ -38,7 +38,7 @@ This program hosts a local WebSocket server on your computer. While local server
 - [Mona Sans](https://github.com/github/mona-sans) – GitHub's open-source variable font
 - [Rubik](https://fonts.google.com/specimen/Rubik) – a sans-serif font family by Hubert & Fischer
 - [IBM Plex Sans](https://github.com/IBM/plex) – IBM's official open-source typeface
-- [ws](https://github.com/websockets/ws) – WebSocket library for the A.C.A.S server
+- [ws](https://github.com/websockets/ws) – WebSocket library for the OmniChess server
 - [Electron](https://www.electronjs.org/) – Framework for the local calculation server
 
 ## License

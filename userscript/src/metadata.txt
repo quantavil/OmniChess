@@ -1,9 +1,9 @@
 // ==UserScript==
 // @name        OmniChess
 // @description        Enhance your chess performance with a cutting-edge real-time move analysis and strategy assistance system
-// @homepageURL https://quantavil.github.io/A.C.A.S
-// @supportURL  https://github.com/quantavil/A.C.A.S/tree/main#why-doesnt-it-work
-// @match       https://quantavil.github.io/A.C.A.S/*
+// @homepageURL https://quantavil.github.io/OmniChess
+// @supportURL  https://github.com/quantavil/OmniChess/tree/main#why-doesnt-it-work
+// @match       https://quantavil.github.io/OmniChess/*
 // @match       http://localhost/*
 // @match       https://www.chess.com/*
 // @match       https://lichess.org/*
@@ -21,7 +21,7 @@
 // @match       https://chess.net/*
 // @match       https://*.freechess.club/*
 // @match       https://app.edchess.io/*
-// @require     https://update.greasyfork.org/scripts/470417/UniversalBoardDrawerjs.js?acasv=2
+// @require     https://update.greasyfork.org/scripts/470417/UniversalBoardDrawerjs.js?omnichessv=2
 // @grant       GM_getValue
 // @grant       GM_setValue
 // @grant       GM_deleteValue

@@ -2,7 +2,7 @@ const toast = {
     'create': (type, icon, content, duration) => {
         const intervalRate = 100;
         const toastTotalDuration = duration;
-        let toastContainer = document.querySelector('#acas-toast-container');
+        let toastContainer = document.querySelector('#omnichess-toast-container');
         let fadeTime = 500;
         let elapsedTime = 0;
         let isHovered = false;
@@ -10,12 +10,12 @@ const toast = {
 
         if(!toastContainer) {
             toastContainer = document.createElement('div');
-            toastContainer.id = 'acas-toast-container';
+            toastContainer.id = 'omnichess-toast-container';
             document.body.appendChild(toastContainer);
         }
 
         const toastElem = document.createElement('div');
-        toastElem.classList.add('acas-toast');
+        toastElem.classList.add('omnichess-toast');
         toastElem.style = `
             -webkit-animation: fadein ${fadeTime / 1000}s forwards;
             animation: fadein ${fadeTime / 1000}s forwards;
@@ -27,22 +27,22 @@ const toast = {
         }
 
         const toastTopContainer = document.createElement('div');
-        toastTopContainer.classList.add('acas-toast-top-container');
+        toastTopContainer.classList.add('omnichess-toast-top-container');
 
         const toastBottomContainer = document.createElement('div');
-        toastBottomContainer.classList.add('acas-toast-bottom-container');
+        toastBottomContainer.classList.add('omnichess-toast-bottom-container');
 
         const progressBarElem = document.createElement('div');
-        progressBarElem.classList.add('acas-toast-progress-bar');
+        progressBarElem.classList.add('omnichess-toast-progress-bar');
 
         const closeBtn = document.createElement('div');
-        closeBtn.classList.add(`acas-toast-${type}`);
-        closeBtn.classList.add('acas-toast-close-btn');
+        closeBtn.classList.add(`omnichess-toast-${type}`);
+        closeBtn.classList.add('omnichess-toast-close-btn');
         closeBtn.innerHTML = '<i class="bi bi-x-lg"></i>';
         closeBtn.onclick = () => toastElem.remove();
 
         const iconElem = document.createElement('div');
-        iconElem.classList.add('acas-toast-icon');
+        iconElem.classList.add('omnichess-toast-icon');
         const emojiRegex = /\p{Emoji}/u;
 
         if(emojiRegex.test(icon)) {
@@ -52,7 +52,7 @@ const toast = {
         }
 
         const contentElem = document.createElement('div');
-        contentElem.classList.add('acas-toast-content');
+        contentElem.classList.add('omnichess-toast-content');
         contentElem.innerText = content;
 
         toastElem.appendChild(toastTopContainer);

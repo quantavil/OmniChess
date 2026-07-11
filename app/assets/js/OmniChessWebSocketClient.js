@@ -1,6 +1,6 @@
 import { updateEnginesList } from './gui/externalEngine.js';
 
-class AcasWebSocketClient {
+class OmniChessWebSocketClient {
     constructor(onEvent = null) {
         this.url = 'ws://localhost:2800';
         this.socket = null;
@@ -119,7 +119,7 @@ class AcasWebSocketClient {
 const uciChannel = new BroadcastChannel(EXTERNAL_UCI_BROADCAST_NAME);
 const statusChannel = new BroadcastChannel(EXTERNAL_STATUS_BROADCAST_NAME);
 
-const ws = new AcasWebSocketClient((type, data) => {
+const ws = new OmniChessWebSocketClient((type, data) => {
     const openText = TRANS_OBJ?.serverOpen ?? 'Connected to the server!';
     const closeText = TRANS_OBJ?.serverClose ?? `Couldn't connect to the external engine server!\n\nPlease install/start the server, trying to reconnect...`;
     const websocketErrorText = TRANS_OBJ?.websocketError ?? 'WebSocket error:';
@@ -152,22 +152,22 @@ const ws = new AcasWebSocketClient((type, data) => {
 
             break;
         case 'sent':
-            //console.log('Sent message to A.C.A.S server:', data);
+            //console.log('Sent message to OmniChess server:', data);
 
             break;
     }
 });
 
-export function connectAcasToServer() {
+export function connectOmniChessToServer() {
     if(ws.socket && ws.socket.readyState === WebSocket.OPEN) {
-        //console.warn("Already connected to A.C.A.S server.");
+        //console.warn("Already connected to OmniChess server.");
         return;
     }
 
     ws.connect();
 }
 
-export function disconnectAcasFromServer() {
+export function disconnectOmniChessFromServer() {
     ws.disconnect();
 }
 

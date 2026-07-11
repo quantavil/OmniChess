@@ -1,4 +1,4 @@
-#acas-toast-container {
+#omnichess-toast-container {
     display: flex;
     width: 100%;
     height: fit-content;
@@ -10,7 +10,7 @@
     z-index: 9999999999;
     pointer-events: none;
 }
-.acas-toast {
+.omnichess-toast {
     min-width: 250px;
     max-width: 50%;
     color: #000;
@@ -26,7 +26,7 @@
     pointer-events: all;
     color: #d1d1d1;
 }
-.acas-toast-top-container {
+.omnichess-toast-top-container {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -34,13 +34,13 @@
     background: linear-gradient(to bottom right, rgb(20 20 20), rgb(0 0 0));
     border: 1px solid #2f2f2f;
 }
-.acas-toast-bottom-container {
+.omnichess-toast-bottom-container {
     height: 6px;
     width: 100%;
     display: flex;
     align-items: center;
 }
-.acas-toast-progress-bar {
+.omnichess-toast-progress-bar {
     height: 4px;
     background-color: rgba(124, 124, 124, 0.75);
     transition: width 0.5s ease;
@@ -48,7 +48,7 @@
     margin-top: 2px;
     margin-bottom: 2px;
 }
-.acas-toast-close-btn {
+.omnichess-toast-close-btn {
     width: 5px;
     background-color: rgb(17, 17, 17);
     transition: all 0.25s;
@@ -64,7 +64,7 @@
     font-weight: 800;
     color: transparent;
 }
-.acas-toast-icon {
+.omnichess-toast-icon {
     font-size: 25px;
     margin-left: 18px;
     margin-right: 10px;
@@ -74,28 +74,28 @@
     align-content: center;
     align-items: center;
 }
-.acas-toast-content {
+.omnichess-toast-content {
     text-align: left;
     font-size: 17px;
     word-break: break-word;
 }
-.acas-toast:hover .acas-toast-close-btn {
+.omnichess-toast:hover .omnichess-toast-close-btn {
     color: white;
     width: 50px;
 }
-.acas-toast-success {
+.omnichess-toast-success {
     background-color: #35b334;
 }
-.acas-toast-message {
+.omnichess-toast-message {
     background-color: #24A0ED;
 }
-.acas-toast-warning {
+.omnichess-toast-warning {
     background-color: #ff9100;
 }
-.acas-toast-error {
+.omnichess-toast-error {
     background-color: #ff0000;
 }
-.acas-toast-instance {
+.omnichess-toast-instance {
     background-color: #5f8895;
 }
 @-webkit-keyframes fadein {

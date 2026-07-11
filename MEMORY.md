@@ -12,7 +12,7 @@ OmniChess/
 │   └── assets/            # Static assets and frontend JavaScript logic
 │       ├── js/            # GUI engine & interface coordinators
 │       │   ├── globals.js            # Shared global state, settings templates, utility logic
-│       │   ├── AcasInstance.js       # Repr. of an engine instance and its coordination
+│       │   ├── OmniChessInstance.js       # Repr. of an engine instance and its coordination
 │       │   ├── gui.js                # Core GUI DOM operations
 │       │   ├── gui/                  # Submodules for input/dropdown/setting UI mapping
 │       │   ├── instance/             # Submodules for WASM engine communication and calculations
@@ -36,11 +36,11 @@ OmniChess/
 - Do not run calculations in the main userscript thread to prevent page lag and cheat-detection triggers on chess websites.
 
 ## Insights
-- **Userscript Renaming & Version Bump:** Renamed the userscript from ACAS-bot to OmniChess and bumped the version to 1.0.0, keeping internal database keys and communication APIs intact for compatibility.
+- **Userscript Renaming & Version Bump:** Renamed the userscript from OmniChess-bot to OmniChess and bumped the version to 1.0.0, keeping internal database keys and communication APIs intact for compatibility.
 - **Audit & Implementation Findings:** Performed a codebase audit and implemented design realignments:
   - Deleted Stockfish 16 binary assets (`sf16-7.js`/`sf16-7.wasm`/`16-0-worker.js`) to remove bloat, leaving SF 17 and 18 options.
   - Revamped UI styling from gamified blue-gray layout to a premium dark-bone monochromatic dashboard (`#0b0f19`/`#16161a`) with tactile spring click micro-interactions.
-  - Decoupled from remote Bootstrap Icons CDN; created local SVG icon registry [icons.js](file:///home/quantavil/Documents/Project/A.C.A.S/app/assets/js/misc/icons.js) with dynamic checkmark inject actions.
+  - Decoupled from remote Bootstrap Icons CDN; created local SVG icon registry [icons.js](file:///home/quantavil/Documents/Project/OmniChess/app/assets/js/misc/icons.js) with dynamic checkmark inject actions.
   - Audit details preserved in [codebase_audit.md](file:///home/quantavil/.gemini/antigravity-cli/brain/0bcff703-dd9a-420d-91ca-458862b3feed/codebase_audit.md).
 - **Stealth & Automation Alignment:** Placed both the renamed "Stealth & Automation" card and the "Miscellaneous" card inline side-by-side within the main settings-panels layout, ensuring they flex next to each other correctly.
 - **Warm Charcoal & Flat Refinements:** Lifted overall illumination by shifting base darks to warm charcoal (`#1f1f23`, `#29292e`, `#323238`) and borders to crisp slate (`#3f3f46`). Removed thick bottom borders and glassmorphism blurs on popups/dropdowns, replacing them with flat styling, custom shadow depth, and smooth modal entrance animations.
@@ -51,8 +51,8 @@ OmniChess/
 - **Floating Panel Settings Inline Integration:** Removed the `#floating-floaty` dialog settings modal entirely, moving the chess board videostream container and 'Display Board' checkbox inline, shown dynamically under `#pip-sub-settings` via setting changes.
 - **Firefox Picture-in-Picture & State Sync:** Prevented Firefox PiP termination by keeping the video element rendering inline in the DOM rather than off-screen/hidden. Integrated `enterpictureinpicture` and `leavepictureinpicture` listeners to sync state with the `pip` checkbox.
 - **Pychess Rendering Fix:** Replaced `Math.floor` with `Math.round` in `getBoardDimensionsFromSize` to resolve subpixel truncation errors that broke rank 8 piece extraction. Added fallback to CSS transform-based coordinate parsing in `pychess.org` adapter when `cgKey` is missing.
-- **Picture-in-Picture Engine Name Display:** Added a helper to map engine keys to human-friendly names and passed it to `updatePipData` during calculations/new games, replacing static 'A.C.A.S' text on the PIP window header.
-- **Crazyhouse Drop Move Parsing:** Added support in `engineMessageProcessor.js` to parse drop moves (e.g. `P@e4`) using a new `dropRegex` and handle them safely in `AcasInstance.js`'s piece evaluation.
+- **Picture-in-Picture Engine Name Display:** Added a helper to map engine keys to human-friendly names and passed it to `updatePipData` during calculations/new games, replacing static 'OmniChess' text on the PIP window header.
+- **Crazyhouse Drop Move Parsing:** Added support in `engineMessageProcessor.js` to parse drop moves (e.g. `P@e4`) using a new `dropRegex` and handle them safely in `OmniChessInstance.js`'s piece evaluation.
 - **Userscript Compatibility:** Ported and restored missing site adapters (chess.org, papergames.io, immortal.game, chess.net, freechess.club, play.chessclub.com, app.edchess.io, and the GUI/backend pages) to the userscript repository.
 - **AutoMove Jitter & Path Presets:** Implemented dynamic click release delays (randomized 40ms to 110ms) and Bezier mouse path presets (fast-flicker, slow-steady, and tired-drag profiles) in the autoMove logic to enhance human simulation.
 - **Documentation & Credits:** Updated main and userscript READMEs to attribute credit to the original script (HKR/Psyyke's greasyfork) and detail our new enhancements (modular structure, local CommLink, adaptive depth, auto-move jitter, presets).

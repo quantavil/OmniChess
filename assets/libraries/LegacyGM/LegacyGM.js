@@ -2,7 +2,7 @@
  - Version: 1.0.3
  - Author: Haka
  - Description: A userscript library for adding support back to GM_ non async functions
- - GitHub: https://github.com/quantavil/A.C.A.S/
+ - GitHub: https://github.com/quantavil/OmniChess/
 */
 
 async function LOAD_LEGACY_GM_SUPPORT() {

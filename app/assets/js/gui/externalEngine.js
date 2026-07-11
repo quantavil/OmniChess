@@ -2,7 +2,7 @@ import { externalChessEngineDropdown } from './elementDeclarations.js';
 import { setInputValue, initializeSettingInputElem } from './domInputs.js';
 
 export async function updateEnginesList(engines) {
-    const installText = document.querySelector('#install-acas-server-text');
+    const installText = document.querySelector('#install-omnichess-server-text');
     const dropdownListContainer = externalChessEngineDropdown.querySelector('.dropdown-list-container');
     const input = externalChessEngineDropdown.querySelector('input');
 

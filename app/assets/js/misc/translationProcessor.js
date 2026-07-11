@@ -7,7 +7,7 @@
 	let availableLanguages = [];
 	let firstLoad = true;
 	let triedToLoadAgain = false;
-	let isSecondaryPage = window?.isAcasSecondaryPage;
+	let isSecondaryPage = window?.isOmniChessSecondaryPage;
 
 	let mutationCounter = 0;
 
@@ -68,10 +68,10 @@
 			const metaObj = await metaResponse.json();
 			const availableLanguagesArr = metaObj.availableLanguages;
 
-			FULL_TRANS_OBJ = translationObj; // set global variable on acas-globals.js so that other files can access translations
+			FULL_TRANS_OBJ = translationObj; // set global variable on omnichess-globals.js so that other files can access translations
 			domTranslations = translationObj.domTranslations;
 			configTranslations = translationObj.configTranslations;
-			TRANS_OBJ = translationObj.translations; // set global variable on acas-globals.js so that other files can access translations
+			TRANS_OBJ = translationObj.translations; // set global variable on omnichess-globals.js so that other files can access translations
 			contributors = translationObj.contributors;
 			currentLang = lang;
 

@@ -26,7 +26,7 @@
 	#setting-container {
 		flex-direction: column !important;
 	}
-	#acas-is-free-reminder {
+	#omnichess-is-free-reminder {
 		font-size: 12px !important;
 	}
 	.setting-panel {
@@ -47,8 +47,8 @@
     .external-engine-setting-panel {
 		display: none !important;
 	}
-	#acas-settings-container #settings-header,
-	#acas-settings-container #setting-container,
+	#omnichess-settings-container #settings-header,
+	#omnichess-settings-container #setting-container,
 	#settings-panels {
 		opacity: 1 !important;
 	}
@@ -62,39 +62,39 @@
     }
 }
 @media (max-width: 550px) {
-	#acas-is-free-reminder span {
+	#omnichess-is-free-reminder span {
 		display: none !important;
 	}
-	#acas-is-free-reminder .greasyfork-button {
+	#omnichess-is-free-reminder .greasyfork-button {
 		display: none !important;
 	}
-	#acas-is-free-reminder .github-button {
+	#omnichess-is-free-reminder .github-button {
 		display: none !important;
 	}
-	#acas-is-free-reminder .affiliate-button {
+	#omnichess-is-free-reminder .affiliate-button {
 		display: block !important;
 	}
 	#install-buttons {
 		flex-direction: column-reverse !important;
 		align-items: flex-start !important;
 	}
-	.acas-offer {
+	.omnichess-offer {
 		overflow-y: auto !important;
 	}
-	.acas-offer::after {
+	.omnichess-offer::after {
 		top: 0 !important;
 		right: 0 !important;
 	}
-	.acas-offer .disclaimer {
+	.omnichess-offer .disclaimer {
 		display: none !important;
 	}
-	.acas-offer .subtitle {
+	.omnichess-offer .subtitle {
 		font-size: 20px !important;
 	}
-	.acas-offer .title {
+	.omnichess-offer .title {
 		font-size: 25px !important;
 	}
-	.acas-offer .midtitle {
+	.omnichess-offer .midtitle {
 		margin-top: 0px !important;
 	}
 }
@@ -141,7 +141,7 @@ cg-container {
 .cg-wrap coords.bottom {
 	bottom: -20px;
 }
-#acas-header {
+#omnichess-header {
 	padding: 15px 20px 20px;
 	background-color: #29292e;
 	height: 50px;
@@ -152,7 +152,7 @@ cg-container {
     top: 0;
 	border-bottom: 1px solid #3f3f46;
 }
-#acas-logo {
+#omnichess-logo {
 	font-size: 30px;
 	font-weight: 600;
 	color: rgb(236, 236, 236);
@@ -168,13 +168,13 @@ cg-container {
 	margin-left: -20px;
 	user-select: none;
 }
-#acas-logo:hover {
+#omnichess-logo:hover {
 	transform: scale(0.95);
 	filter: brightness(1.2);
 	color: white;
 	cursor: pointer;
 }
-#acas-logo-img {
+#omnichess-logo-img {
 	width: 150px;
     position: absolute;
     opacity: 0.2;
@@ -186,33 +186,33 @@ cg-container {
     object-position: center top;
 	filter: grayscale(1);
 }
-#acas-logo-text-container {
+#omnichess-logo-text-container {
 	z-index: 1;
 	margin-left: 30px;
 }
-#acas-version-tag {
+#omnichess-version-tag {
 	font-size: 15px;
     font-weight: 200;
     font-family: "IBM Plex Sans";
     margin-left: 3px;
 }
-#acas-logo-main {
+#omnichess-logo-main {
     display: flex;
     align-items: flex-start;
     font-stretch: ultra-expanded;
 	font-weight: 800;
     font-family: "Mona Sans";
 }
-#acas-logo-secondary {
+#omnichess-logo-secondary {
 	font-size: 15px;
 	font-weight: 100;
 }
-.acas-instance {
+.omnichess-instance {
 	display: flex;
 	justify-content: center;
 	align-content: center;
 	width: 550px;
-	/* this is overwritten by acas-backend-gui.js */
+	/* this is overwritten by omnichess-backend-gui.js */
 	max-width: 90vw;
 	height: fit-content;
 	position: relative;
@@ -223,7 +223,7 @@ cg-container {
 	border: 1px solid #3f3f46;
 	background-color: #323238;
 }
-#acas-instance-container {
+#omnichess-instance-container {
 	display: flex;
 	justify-content: center;
 	flex-wrap: wrap;
@@ -419,7 +419,7 @@ cg-container {
 body:has(#install-notification:not(.hidden)) {
     background-color: rgb(24, 24, 24) !important;
 }
-body:has(#install-notification:not(.hidden)) #acas-instance-container {
+body:has(#install-notification:not(.hidden)) #omnichess-instance-container {
     background-color: rgb(48, 48, 48) !important;
 }
 .install-description {
@@ -516,7 +516,7 @@ body:has(#install-notification:not(.hidden)) #acas-instance-container {
 	margin: 10px 0 10px;
 }
 
-#install-acas-server-text {
+#install-omnichess-server-text {
 	display: flex;
     flex-direction: column;
     align-items: center;
@@ -692,7 +692,7 @@ body:has(#install-notification:not(.hidden)) #acas-instance-container {
 	-webkit-user-select: none;
 	-ms-user-select: none;
 }
-#acas-settings-container {
+#omnichess-settings-container {
 	display: flex;
 	height: fit-content;
 	background-color: #29292e;
@@ -994,7 +994,7 @@ body:has(#install-notification:not(.hidden)) #acas-instance-container {
 	transform: scale(1.05);
 }
 
-#acas-is-free-reminder {
+#omnichess-is-free-reminder {
 	display: flex;
 	flex-direction: column;
 	grid-gap: 5px;
@@ -1002,12 +1002,12 @@ body:has(#install-notification:not(.hidden)) #acas-instance-container {
 	color: grey;
 	align-items: flex-end;
 }
-#acas-is-free-reminder {
+#omnichess-is-free-reminder {
 	font-size: 15px;
     font-weight: 500;
     color: #ededed;
 }
-#acas-is-free-reminder .acas-social-actions {
+#omnichess-is-free-reminder .omnichess-social-actions {
 	display: flex;
 	flex-direction: row;
 	grid-gap: 5px;
@@ -1321,7 +1321,7 @@ body:has(#install-notification:not(.hidden)) #acas-instance-container {
     backdrop-filter: blur(5px);
 	-webkit-backdrop-filter: blur(5px);
 }
-.acas-offer {
+.omnichess-offer {
     display: flex;
     background-color: white;
     flex-direction: column;
@@ -1334,7 +1334,7 @@ body:has(#install-notification:not(.hidden)) #acas-instance-container {
     padding: 25px;
 	max-height: 90vh;
 }
-.acas-offer::after {
+.omnichess-offer::after {
     content: "💕";
     position: absolute;
     top: -25px;
@@ -1348,11 +1348,11 @@ body:has(#install-notification:not(.hidden)) #acas-instance-container {
     left: -20px;
     font-size: 35px;
 }
-.acas-offer .title {
+.omnichess-offer .title {
 	font-size: 30px;
     font-weight: 700;
 }
-.acas-offer .subtitle {
+.omnichess-offer .subtitle {
     font-size: 25px;
     font-weight: 300;
     background-color: #e8122426;
@@ -1360,45 +1360,45 @@ body:has(#install-notification:not(.hidden)) #acas-instance-container {
     border-radius: 3px;
     padding: 10px;
 }
-.acas-offer .midtitle {
+.omnichess-offer .midtitle {
     margin-top: 20px;
     font-size: 20px;
     font-weight: 400;
     margin-bottom: 10px;
 }
-.acas-offer .pretitle {
+.omnichess-offer .pretitle {
 	font-size: 18px;
     font-weight: 400;
 	color: rgb(105 63 66);
 }
-.acas-offer .small {
+.omnichess-offer .small {
 	font-size: 13px;
     font-weight: 300;
 	margin-top: 10px;
 }
-.acas-offer .offer-x {
+.omnichess-offer .offer-x {
 	font-size: 27px;
 	font-weight: 300;
 }
-.acas-offer .disclaimer {
+.omnichess-offer .disclaimer {
 	border-left: 2px solid #693f42;
     padding-left: 10px;
     color: #3b2527;
     padding: 10px;
     font-weight: 400;
 }
-.acas-offer .discount {
+.omnichess-offer .discount {
     color: #d95864;
     text-shadow: 0px 2px 0px #751414;
 }
-.acas-offer .originalPrice {
+.omnichess-offer .originalPrice {
 	text-decoration: line-through;
     font-weight: 300;
 }
-.acas-offer .price {
+.omnichess-offer .price {
 	font-weight: 600;
 }
-.acas-offer .close-btn {
+.omnichess-offer .close-btn {
 	display: none;
 	position: absolute;
 	top: 0;
@@ -1413,7 +1413,7 @@ body:has(#install-notification:not(.hidden)) #acas-instance-container {
 	align-items: center;
 	justify-content: center;
 }
-.acas-offer .get-deal-btn {
+.omnichess-offer .get-deal-btn {
     background-color: white;
     height: fit-content;
     font-size: 20px;
@@ -1430,7 +1430,7 @@ body:has(#install-notification:not(.hidden)) #acas-instance-container {
     display: flex;
     justify-content: center;
 }
-.acas-offer .get-deal-btn:active {
+.omnichess-offer .get-deal-btn:active {
 	margin-top: 13px !important;
 }
 .product-container {

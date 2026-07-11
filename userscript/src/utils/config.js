@@ -1,6 +1,6 @@
 export const backendConfig = {
     'hosts': { 'prod': 'quantavil.github.io', 'dev': 'localhost' },
-    'path': '/A.C.A.S/'
+    'path': '/OmniChess/'
 };
 
 export const domain = window.location.hostname.replace('www.', '');
@@ -124,7 +124,7 @@ function createInstanceVariable(dbValue) {
 
 const tempValueIndicator = '-temp-value-';
 export const dbValues = {
-    AcasConfig: 'AcasConfig',
+    OmniChessConfig: 'OmniChessConfig',
     playerColor: instanceID => 'playerColor' + tempValueIndicator + instanceID,
     turn: instanceID => 'turn' + tempValueIndicator + instanceID,
     fen: instanceID => 'fen' + tempValueIndicator + instanceID
@@ -141,7 +141,7 @@ export function setGmConfigValue(key, value, instanceID, profileID) {
     if(typeof profileID === 'object') {
         profileID = profileID.name;
     }
-    const configObj = GM_getValue(dbValues.AcasConfig) || {};
+    const configObj = GM_getValue(dbValues.OmniChessConfig) || {};
     if (profileID) {
         if (!configObj.instance) configObj.instance = {};
         if (!configObj.instance[instanceID]) configObj.instance[instanceID] = {};
@@ -153,7 +153,7 @@ export function setGmConfigValue(key, value, instanceID, profileID) {
         if (!configObj.instance[instanceID]) configObj.instance[instanceID] = {};
         configObj.instance[instanceID][key] = value;
     }
-    GM_setValue(dbValues.AcasConfig, configObj);
+    GM_setValue(dbValues.OmniChessConfig, configObj);
 }
 
 export function getGmConfigValue(key, instanceID, profileID) {
@@ -161,7 +161,7 @@ export function getGmConfigValue(key, instanceID, profileID) {
         profileID = profileID.name;
     }
 
-    const config = GM_getValue(dbValues.AcasConfig);
+    const config = GM_getValue(dbValues.OmniChessConfig);
 
     const instanceValue = config?.instance?.[instanceID]?.[key];
     const globalValue = config?.global?.[key];

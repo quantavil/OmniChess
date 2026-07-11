@@ -7,7 +7,7 @@ import updateSettings from './instance/updateSettings.js';
 import calculateBestMoves from './instance/calculateBestMoves.js';
 import setupEnvironment from './instance/setupEnvironment.js';
 import engineStartNewGame from './instance/engineStartNewGame.js';
-import { sendUciToExternalEngine, closeAllExternalEnginesWithId } from './AcasWebSocketClient.js';
+import { sendUciToExternalEngine, closeAllExternalEnginesWithId } from './OmniChessWebSocketClient.js';
 import { getDynamicEngineDbKeyPrefix } from './gui/dynamicEngineOptions.js';
 import { getDynamicOption } from './gui/dynamicEngineOptions.js';
 import { removeInstance } from './instanceManager.js';
@@ -37,7 +37,7 @@ const configKeys = Object.freeze([
     'enableAdaptiveDepth', 'adaptiveDepthMin', 'adaptiveDepthMax'
 ].reduce((o, k) => (o[k] = k, o), {}));
 
-export default class AcasInstance {
+export default class OmniChessInstance {
     constructor(domain, instanceID, chessVariant, onLoadCallbackFunction) {
         this.configKeys = configKeys;
         this.loadEngine = loadEngine;
@@ -201,7 +201,7 @@ export default class AcasInstance {
 
             switch(statusType) {
                 case 'engineDeathCertificate':
-                    this.notifyAcasAboutEngineClosing(profileName);
+                    this.notifyOmniChessAboutEngineClosing(profileName);
 
                     break;
             }
@@ -271,7 +271,7 @@ export default class AcasInstance {
         this.loadEngine(profileName);
     }
 
-    notifyAcasAboutEngineClosing(profileName) {
+    notifyOmniChessAboutEngineClosing(profileName) {
         this.engineMessageProcessor('error Engine closed!', profileName);
 
         if(profileName) {
@@ -643,7 +643,7 @@ export default class AcasInstance {
         if(this.debugLogsEnabled) console.warn('[Logical Change Detection] Changed pieces:', countChange);
     
         // Large abnormal piece changes are allowed, as they usually mean something significant has happened
-        // Smaller abnormal piece changes are most likely caused by a faulty newFen provided by the A.C.A.S on the site
+        // Smaller abnormal piece changes are most likely caused by a faulty newFen provided by the OmniChess on the site
         return (-3 < countChange && countChange < -1) || (0 < countChange && countChange < 2);
     }
 
@@ -720,7 +720,7 @@ export default class AcasInstance {
         return turn || 'w';
     }
 
-    getEngineAcasObj(i) {
+    getEngineOmniChessObj(i) {
         if(typeof i === 'object') {
             return this.engines.find(obj => obj.profileName === i.name);
         }
@@ -746,12 +746,12 @@ export default class AcasInstance {
     }
 
     contactEngine(method, args, i) {
-        return this.getEngineAcasObj(i)['engine'](method, args);
+        return this.getEngineOmniChessObj(i)['engine'](method, args);
     }
 
     async sendMsgToEngine(msg, i, isDynamicOption) {
         const isProfile = typeof i === 'string' && this.pV[i];
-        const engineExists = this.getEngineAcasObj(i)?.sendMsg;
+        const engineExists = this.getEngineOmniChessObj(i)?.sendMsg;
         const isBannedOptionSet = msg.startsWith('setoption name')
             && (isProfile && this.pV[i].usingAdvancedMode && !isDynamicOption);
 
@@ -768,8 +768,8 @@ export default class AcasInstance {
 
             const waitForEngineToLoad = setInterval(() => {
 
-                if(this.getEngineAcasObj(i)?.sendMsg && isProfile) {
-                    this.getEngineAcasObj(i).sendMsg(msg);
+                if(this.getEngineOmniChessObj(i)?.sendMsg && isProfile) {
+                    this.getEngineOmniChessObj(i).sendMsg(msg);
     
                     clearInterval(waitForEngineToLoad);
                 } else {
@@ -782,7 +782,7 @@ export default class AcasInstance {
 
             }, 100);
         } else if(engineExists) {
-            this.getEngineAcasObj(i).sendMsg(msg);
+            this.getEngineOmniChessObj(i).sendMsg(msg);
         } else {
             if(this.debugLogsEnabled) console.warn('Attempted to send message to non existing engine?', `(${i})`);
         }
@@ -839,7 +839,7 @@ export default class AcasInstance {
             });
         }
 
-        const rawEngineName = this.getEngineAcasObj(profile)?.type;
+        const rawEngineName = this.getEngineOmniChessObj(profile)?.type;
         const engineName = GET_HUMAN_READABLE_ENGINE_NAME(rawEngineName);
 
         updatePipData({ moveObjects, engineName });

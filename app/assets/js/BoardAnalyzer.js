@@ -1,4 +1,4 @@
-/* [A.C.A.S Board Analyzer]
+/* [OmniChess Board Analyzer]
  * - License: GPLv3
  * - Version: 0.1
  * - Notes: No en passant detection on v0.1.

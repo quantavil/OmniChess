@@ -12,7 +12,7 @@ const toast = {
     'create': (type, icon, content, duration) => {
         const intervalRate = 100;
         let toastTotalDuration = duration || defaultDurations[type] || 2000;
-        let toastContainer = document.querySelector('#acas-toast-container');
+        let toastContainer = document.querySelector('#omnichess-toast-container');
         let fadeTime = 300;
         let elapsedTime = 0;
         let isHovered = false;
@@ -28,12 +28,12 @@ const toast = {
 
         if(!toastContainer) {
             toastContainer = document.createElement('div');
-            toastContainer.id = 'acas-toast-container';
+            toastContainer.id = 'omnichess-toast-container';
             document.body.appendChild(toastContainer);
         }
 
         const toastElem = document.createElement('div');
-        toastElem.className = `acas-toast acas-toast-${type}`;
+        toastElem.className = `omnichess-toast omnichess-toast-${type}`;
 
         function triggerFadeOut() {
             // Remove from activeToasts list
@@ -43,12 +43,12 @@ const toast = {
             }
             if (customTimeout) clearInterval(customTimeout);
             if (loadingSpinnerInterval) clearInterval(loadingSpinnerInterval);
-            toastElem.classList.add('acas-toast-fadeout');
+            toastElem.classList.add('omnichess-toast-fadeout');
             setTimeout(() => toastElem.remove(), fadeTime);
         }
 
         const iconElem = document.createElement('div');
-        iconElem.classList.add('acas-toast-icon');
+        iconElem.classList.add('omnichess-toast-icon');
         const emojiRegex = /\p{Emoji}/u;
 
         if(emojiRegex.test(icon)) {
@@ -58,18 +58,18 @@ const toast = {
         }
 
         const contentElem = document.createElement('div');
-        contentElem.classList.add('acas-toast-content');
+        contentElem.classList.add('omnichess-toast-content');
         contentElem.innerText = content;
 
         const closeBtn = document.createElement('button');
-        closeBtn.classList.add('acas-toast-close-btn');
+        closeBtn.classList.add('omnichess-toast-close-btn');
         closeBtn.innerHTML = '✕';
         closeBtn.onclick = () => triggerFadeOut();
 
         const progressContainer = document.createElement('div');
-        progressContainer.classList.add('acas-toast-progress-container');
+        progressContainer.classList.add('omnichess-toast-progress-container');
         const progressBarElem = document.createElement('div');
-        progressBarElem.classList.add('acas-toast-progress-bar');
+        progressBarElem.classList.add('omnichess-toast-progress-bar');
         progressContainer.appendChild(progressBarElem);
 
         toastElem.appendChild(iconElem);
@@ -112,9 +112,9 @@ const toast = {
             if (newDuration) {
                 toastTotalDuration = newDuration;
             }
-            toastElem.classList.remove('acas-toast-pulse');
+            toastElem.classList.remove('omnichess-toast-pulse');
             void toastElem.offsetWidth; // Force layout reflow to restart animation
-            toastElem.classList.add('acas-toast-pulse');
+            toastElem.classList.add('omnichess-toast-pulse');
             progressBarElem.style.width = '0%';
             startTimer();
         }

@@ -3,7 +3,7 @@ import { setInstanceSelectionStatus } from './instances.js';
 import { saveSetting, loopThroughAndUpdateSettingsValues } from './settings.js';
 import { guiBroadcastChannel } from '../gui.js';
 import { ensureOneDynamicEngineSettingVisible } from './dynamicEngineOptions.js';
-import { closeAllExternalEnginesWithId } from '../AcasWebSocketClient.js';
+import { closeAllExternalEnginesWithId } from '../OmniChessWebSocketClient.js';
 
 function settingPanelTransitionAnimation(duration = 400) {
     if(!duration) return;

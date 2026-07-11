@@ -200,11 +200,11 @@ onmessage = e => {
         return;
     }
 
-    if(neuralEngine && factEngine && method === 'acas_check_loaded') {
+    if(neuralEngine && factEngine && method === 'omnichess_check_loaded') {
         postMessage(true);
 
         postMessage('id name Fusion - Neural Engine');
-        postMessage('id author A.C.A.S');
+        postMessage('id author OmniChess');
         postMessage('uciok');
 
         return;

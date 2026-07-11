@@ -1,22 +1,22 @@
-window.AcasPrompt = (function() {
+window.OmniChessPrompt = (function() {
     const dialog = document.createElement('dialog');
     dialog.classList.add('prompt-dialog');
     dialog.innerHTML = `
         <form method="dialog">
-            <p id="acas-message"></p>
-            <input type="text" id="acas-input" style="width: 90%; margin-bottom: 1em;" required />
+            <p id="omnichess-message"></p>
+            <input type="text" id="omnichess-input" style="width: 90%; margin-bottom: 1em;" required />
             <menu style="display:flex; justify-content:flex-end; gap: 0.5em;">
-                <button id="acas-cancel" class="acas-fancy-button" style="display: none; padding: 8px 15px;" type="button">Cancel</button>
-                <button id="acas-ok" class="acas-fancy-button" style="padding: 8px 15px;" type="submit">OK</button>
+                <button id="omnichess-cancel" class="omnichess-fancy-button" style="display: none; padding: 8px 15px;" type="button">Cancel</button>
+                <button id="omnichess-ok" class="omnichess-fancy-button" style="padding: 8px 15px;" type="submit">OK</button>
             </menu>
         </form>
     `;
 
     document.body.appendChild(dialog);
 
-    const messageElem = dialog.querySelector('#acas-message');
-    const inputElem = dialog.querySelector('#acas-input');
-    const cancelBtn = dialog.querySelector('#acas-cancel');
+    const messageElem = dialog.querySelector('#omnichess-message');
+    const inputElem = dialog.querySelector('#omnichess-input');
+    const cancelBtn = dialog.querySelector('#omnichess-cancel');
 
     cancelBtn.addEventListener('click', () => dialog.close('cancel'));
 

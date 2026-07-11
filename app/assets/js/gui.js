@@ -1,4 +1,4 @@
-import { acasInstanceContainer, settingsNavbarGlobalElem, importSettingsBtn, exportSettingsBtn, resetSettingsBtn,
+import { omnichessInstanceContainer, settingsNavbarGlobalElem, importSettingsBtn, exportSettingsBtn, resetSettingsBtn,
     noInstancesSitesElem, seeSupportedSitesBtn, ttsNameDropdownElem, userscriptInfoElem, updateYourUserscriptElem,
     decreaseInstanceSizeBtn, increaseInstanceSizeBtn, addNewProfileBtn, floatyButtons, beggingFloaty, profileListContainerElem, togglePipBtn, floatingPanelVideoElem } from './gui/elementDeclarations.js';
 import { importSettings, exportSettings, resetSettings } from './gui/settings.js';
@@ -17,7 +17,7 @@ export function setThemeColorHex(value) {
     document.querySelectorAll('dialog').forEach(diag => {
         diag.style['background-color'] = value || null;
     });
-    acasInstanceContainer.style['background-color'] = value || null;
+    omnichessInstanceContainer.style['background-color'] = value || null;
     pipData[THEME_COLOR_STORAGE_KEY] = value;
     localStorage.setItem(THEME_COLOR_STORAGE_KEY, value);
 }
@@ -69,7 +69,7 @@ function changeBoardSizeModifier(change) {
 
     localStorage.setItem(BOARD_SIZE_MODIFIER_KEY, newBoardSizeModifier);
 
-    const instanceElems = [...document.querySelectorAll('.acas-instance')];
+    const instanceElems = [...document.querySelectorAll('.omnichess-instance')];
 
     instanceElems.forEach(elem => {
         elem.style.width = `${instanceSize * newBoardSizeModifier}px`;
@@ -152,7 +152,7 @@ async function updateUserscriptInfoText() {
         const userscriptManagerData = [GM_info?.scriptHandler, GM_info?.version]?.join(' ');
         const userscriptData = [GM_info?.script?.author, GM_info?.script?.version]?.join(' ');
     
-        document.title = `A.C.A.S (Using ${userscriptData})`;
+        document.title = `OmniChess (Using ${userscriptData})`;
     
         const name = GM_info?.script?.name || '';
         const version = GM_info?.script?.version || '';

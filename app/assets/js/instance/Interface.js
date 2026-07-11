@@ -21,15 +21,15 @@ function getArrowStyle(type, fill, opacity) {
 
 export default class Interface {
     constructor(instance) {
-        this.AcasInstance = instance;
+        this.OmniChessInstance = instance;
     }
 
     async markMoves(moveObjArr, profile) {
         this.removeMarkings(profile, 'Make room for new move markings');
 
         const maxScale = 1, minScale = 0.5, totalRanks = moveObjArr.length;
-        const BoardDrawer = this.AcasInstance.BoardDrawer;
-        const cfgKeys = this.AcasInstance.configKeys;
+        const BoardDrawer = this.OmniChessInstance.BoardDrawer;
+        const cfgKeys = this.OmniChessInstance.configKeys;
         
         const [
             arrowOpacity,
@@ -42,15 +42,15 @@ export default class Interface {
             onlySuggestPieces,
             movesOnDemand
         ] = await Promise.all([
-            this.AcasInstance.getConfigValue(cfgKeys.arrowOpacity, profile).then(v => v/100),
-            this.AcasInstance.getConfigValue(cfgKeys.showOpponentMoveGuess, profile),
-            this.AcasInstance.getConfigValue(cfgKeys.showOpponentMoveGuessConstantly, profile),
-            this.AcasInstance.getConfigValue(cfgKeys.primaryArrowColorHex, profile),
-            this.AcasInstance.getConfigValue(cfgKeys.secondaryArrowColorHex, profile),
-            this.AcasInstance.getConfigValue(cfgKeys.opponentArrowColorHex, profile),
-            this.AcasInstance.getConfigValue(cfgKeys.moveAsFilledSquares, profile),
-            this.AcasInstance.getConfigValue(cfgKeys.onlySuggestPieces, profile),
-            this.AcasInstance.getConfigValue(cfgKeys.movesOnDemand, profile)
+            this.OmniChessInstance.getConfigValue(cfgKeys.arrowOpacity, profile).then(v => v/100),
+            this.OmniChessInstance.getConfigValue(cfgKeys.showOpponentMoveGuess, profile),
+            this.OmniChessInstance.getConfigValue(cfgKeys.showOpponentMoveGuessConstantly, profile),
+            this.OmniChessInstance.getConfigValue(cfgKeys.primaryArrowColorHex, profile),
+            this.OmniChessInstance.getConfigValue(cfgKeys.secondaryArrowColorHex, profile),
+            this.OmniChessInstance.getConfigValue(cfgKeys.opponentArrowColorHex, profile),
+            this.OmniChessInstance.getConfigValue(cfgKeys.moveAsFilledSquares, profile),
+            this.OmniChessInstance.getConfigValue(cfgKeys.onlySuggestPieces, profile),
+            this.OmniChessInstance.getConfigValue(cfgKeys.movesOnDemand, profile)
         ]);
     
         const markedSquares = [[], []]; // [primary, secondary]
@@ -79,7 +79,7 @@ export default class Interface {
                     elems.push(oppElem);
                 }
     
-                this.AcasInstance.pV[profile].activeGuiMoveMarkings.push({otherElems: elems});
+                this.OmniChessInstance.pV[profile].activeGuiMoveMarkings.push({otherElems: elems});
             }
             else if(moveAsFilledSquares) {
                 const fillType = idx === 0 ? 1 : 0, fillColor = fillType ? primaryArrowColorHex : secondaryArrowColorHex;
@@ -103,7 +103,7 @@ export default class Interface {
                 }
     
                 markedSquares[fillType].push(from, to);
-                this.AcasInstance.pV[profile].activeGuiMoveMarkings.push({otherElems: elems});
+                this.OmniChessInstance.pV[profile].activeGuiMoveMarkings.push({otherElems: elems});
             }
             else {
                 let arrowStyle = getArrowStyle('best', primaryArrowColorHex, arrowOpacity);
@@ -133,28 +133,28 @@ export default class Interface {
                     if(oppArrowElem) p.appendChild(oppArrowElem);
                 }
     
-                this.AcasInstance.pV[profile].activeGuiMoveMarkings.push({...mObj, playerArrowElem, oppArrowElem});
+                this.OmniChessInstance.pV[profile].activeGuiMoveMarkings.push({...mObj, playerArrowElem, oppArrowElem});
             }
         });
     
-        this.AcasInstance.pV[profile].pastMoveObjects = [];
+        this.OmniChessInstance.pV[profile].pastMoveObjects = [];
     }
     
     removeMarkingFromProfile(p) {
-        this.AcasInstance.pV[p].activeGuiMoveMarkings.forEach(markingObj => {
+        this.OmniChessInstance.pV[p].activeGuiMoveMarkings.forEach(markingObj => {
             markingObj.oppArrowElem?.remove();
             markingObj.playerArrowElem?.remove();
             markingObj?.otherElems?.forEach(x => x?.remove());
         });
 
-        this.AcasInstance.pV[p].activeGuiMoveMarkings = [];
+        this.OmniChessInstance.pV[p].activeGuiMoveMarkings = [];
     }
 
     removeMarkings(profile, reason) {
-        if(this.AcasInstance.debugLogsEnabled) console.warn('[Remove markings] FOR:', reason);
+        if(this.OmniChessInstance.debugLogsEnabled) console.warn('[Remove markings] FOR:', reason);
     
         if(!profile) {
-            Object.keys(this.AcasInstance.pV).forEach(profileName => {
+            Object.keys(this.OmniChessInstance.pV).forEach(profileName => {
                 this.removeMarkingFromProfile(profileName);
             });
         } else {
@@ -164,97 +164,97 @@ export default class Interface {
     
     async updateBoardFen(fen) {
         // Most up to date userscript versions handle this itself, so commenting out for now.
-        //if(this.AcasInstance.currentFen === fen) return;
+        //if(this.OmniChessInstance.currentFen === fen) return;
     
-        const moveObj = EXTRACT_MOVE_FROM_FEN(this.AcasInstance.currentFen, fen);
+        const moveObj = EXTRACT_MOVE_FROM_FEN(this.OmniChessInstance.currentFen, fen);
         const movedPieceLowered = moveObj?.movedPiece?.toLowerCase();
-        const instanceFenElem = this?.AcasInstance?.instanceElem?.querySelector('.instance-fen');
+        const instanceFenElem = this?.OmniChessInstance?.instanceElem?.querySelector('.instance-fen');
 
         if(!instanceFenElem) return;
 
-        if(this.AcasInstance.debugLogsEnabled) {
+        if(this.OmniChessInstance.debugLogsEnabled) {
             const origin = (typeof location !== 'undefined' && location.origin) ? location.origin : '';
-            const fens = [this.AcasInstance.currentFen, fen];
+            const fens = [this.OmniChessInstance.currentFen, fen];
             const fensString = fens.map(x => x.split(' ')[0]).join(',');
     
             console.warn('%c[ NEW FEN RECEIVED! ]', 'color: neon; font-weight: bold; font-size: 50px;');
-            console.warn('[Logical Change Detection] New board FEN received:', `${origin}/A.C.A.S/board/?fens=${fensString}&o=${this.AcasInstance.lastOrientation}`, { fen, moveObj });
+            console.warn('[Logical Change Detection] New board FEN received:', `${origin}/OmniChess/board/?fens=${fensString}&o=${this.OmniChessInstance.lastOrientation}`, { fen, moveObj });
         }
     
         if(movedPieceLowered === 'k') {
             const kingColor = moveObj?.movedPiece === movedPieceLowered
                 ? 'b' : 'w';
     
-            if(!this.AcasInstance.kingMoved.includes(kingColor))
-                this.AcasInstance.kingMoved += kingColor;
+            if(!this.OmniChessInstance.kingMoved.includes(kingColor))
+                this.OmniChessInstance.kingMoved += kingColor;
         }
 
         if(!moveObj?.color) {
-            const playerColor = await this.AcasInstance.getPlayerColor();
+            const playerColor = await this.OmniChessInstance.getPlayerColor();
             moveObj.color = playerColor.toLowerCase() === 'w' ? 'b' : 'w';
         }
     
-        fen = MODIFY_FEN_CASTLE_RIGHTS(fen, this.AcasInstance.kingMoved);
+        fen = MODIFY_FEN_CASTLE_RIGHTS(fen, this.OmniChessInstance.kingMoved);
     
-        this.AcasInstance.currentFen = fen;
+        this.OmniChessInstance.currentFen = fen;
     
-        USERSCRIPT.instanceVars.fen.set(this.AcasInstance.instanceID, fen);
+        USERSCRIPT.instanceVars.fen.set(this.OmniChessInstance.instanceID, fen);
     
         if(instanceFenElem) instanceFenElem.innerText = fen;
-        if(this.AcasInstance.chessground) this.AcasInstance.chessground.set({ fen });
+        if(this.OmniChessInstance.chessground) this.OmniChessInstance.chessground.set({ fen });
 
-        this.AcasInstance.engineStopCalculating(false, 'New board FEN, any running calculations are now useless!');
+        this.OmniChessInstance.engineStopCalculating(false, 'New board FEN, any running calculations are now useless!');
 
         this.removeMarkings(null, 'New board FEN');
     
         // For each profile config
-        Object.keys(this.AcasInstance.pV).forEach(profileName => {
-            this.AcasInstance.pV[profileName].currentSpeeches.forEach(synthesis => synthesis.cancel());
-            this.AcasInstance.pV[profileName].currentSpeeches = [];
+        Object.keys(this.OmniChessInstance.pV).forEach(profileName => {
+            this.OmniChessInstance.pV[profileName].currentSpeeches.forEach(synthesis => synthesis.cancel());
+            this.OmniChessInstance.pV[profileName].currentSpeeches = [];
     
-            this.AcasInstance.renderMetric(fen, profileName);
+            this.OmniChessInstance.renderMetric(fen, profileName);
         });
     
         updatePipData({ 'moveObjects': null });
     
-        this.AcasInstance.renderFeedback(fen);
-        this.AcasInstance.calculateBestMoves(fen, { moveObj });
+        this.OmniChessInstance.renderFeedback(fen);
+        this.OmniChessInstance.calculateBestMoves(fen, { moveObj });
     
-        this.AcasInstance.moveHistory.push({
+        this.OmniChessInstance.moveHistory.push({
             'fen': fen,
             'move': moveObj
         });
     }
     
     updateBoardOrientation(orientation) {
-        if(orientation === this.AcasInstance.lastOrientation) return;
+        if(orientation === this.OmniChessInstance.lastOrientation) return;
         
-        this.AcasInstance.lastOrientation = orientation;
+        this.OmniChessInstance.lastOrientation = orientation;
     
-        Object.keys(this.AcasInstance.pV).forEach(profileName => {
-            this.AcasInstance.pV[profileName].lastCalculatedFen = null;
+        Object.keys(this.OmniChessInstance.pV).forEach(profileName => {
+            this.OmniChessInstance.pV[profileName].lastCalculatedFen = null;
         });
     
         const orientationWord = orientation === 'b' ? 'black' : 'white';
     
-        const evalBarElem = this.AcasInstance.instanceElem.querySelector('.eval-bar');
+        const evalBarElem = this.OmniChessInstance.instanceElem.querySelector('.eval-bar');
     
         if(orientation === 'b')
             evalBarElem.classList.add('reversed');
         else
             evalBarElem.classList.remove('reversed');
     
-        this.AcasInstance.chessground.toggleOrientation();
-        this.AcasInstance.chessground.redrawAll();
-        this.AcasInstance.chessground.set({ 'orientation': orientationWord });
+        this.OmniChessInstance.chessground.toggleOrientation();
+        this.OmniChessInstance.chessground.redrawAll();
+        this.OmniChessInstance.chessground.set({ 'orientation': orientationWord });
     
-        this.AcasInstance.BoardDrawer.setOrientation(orientation);
+        this.OmniChessInstance.BoardDrawer.setOrientation(orientation);
     }
     
     updateMoveProgress(text, status) {
-        if(!this.AcasInstance.instanceElem) return;
+        if(!this.OmniChessInstance.instanceElem) return;
     
-        const infoTextElem = this.AcasInstance.instanceElem.querySelector('.instance-info-text');
+        const infoTextElem = this.OmniChessInstance.instanceElem.querySelector('.instance-info-text');
     
         infoTextElem.innerText = text;
     
@@ -275,13 +275,13 @@ export default class Interface {
     }
     
     async updateEval(centipawnEval, mate, profile) {
-        if(!this.AcasInstance.instanceElem) return;
+        if(!this.OmniChessInstance.instanceElem) return;
     
-        const evalFill = this.AcasInstance.instanceElem.querySelector('.eval-fill');
+        const evalFill = this.OmniChessInstance.instanceElem.querySelector('.eval-fill');
         const gradualness = 8;
-        const playerColor = await this.AcasInstance.getPlayerColor(profile);
+        const playerColor = await this.OmniChessInstance.getPlayerColor(profile);
     
-        if(this.AcasInstance.lastTurn !== playerColor) return;
+        if(this.OmniChessInstance.lastTurn !== playerColor) return;
 
         if(playerColor === 'b') {
             centipawnEval = -centipawnEval;
@@ -298,7 +298,7 @@ export default class Interface {
     }
     
     displayConnectionIssueWarning() {
-        const connectionWarningElem = this.AcasInstance.instanceElem?.querySelector('.connection-warning');
+        const connectionWarningElem = this.OmniChessInstance.instanceElem?.querySelector('.connection-warning');
     
         if(connectionWarningElem) {
             connectionWarningElem.classList.remove('hidden');
@@ -306,7 +306,7 @@ export default class Interface {
     }
     
     removeConnectionIssueWarning() {
-        const connectionWarningElem = this.AcasInstance.instanceElem?.querySelector('.connection-warning');
+        const connectionWarningElem = this.OmniChessInstance.instanceElem?.querySelector('.connection-warning');
     
         if(connectionWarningElem) {
             connectionWarningElem.classList.add('hidden');

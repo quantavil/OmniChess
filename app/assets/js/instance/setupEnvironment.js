@@ -1,4 +1,4 @@
-import { acasInstanceContainer, settingsContainerElem } from '../gui/elementDeclarations.js';
+import { omnichessInstanceContainer, settingsContainerElem } from '../gui/elementDeclarations.js';
 import { incrementUserUsageStat } from '../gui/stats.js';
 
 export default async function setupEnvironment(startpos, dimensions) {
@@ -68,10 +68,10 @@ export default async function setupEnvironment(startpos, dimensions) {
     
         // To avoid XSS do not put data from external sites directly inside the innerHTML string using templates!
         // InstanceIdQuery, boardPieceDimensions and such are safe since they don't contain external data.
-        const acasInstanceElem = document.createElement('div');
-            acasInstanceElem.classList.add('acas-instance');
-            acasInstanceElem.dataset.instanceId = this.instanceID;
-            acasInstanceElem.innerHTML = `
+        const omnichessInstanceElem = document.createElement('div');
+            omnichessInstanceElem.classList.add('omnichess-instance');
+            omnichessInstanceElem.dataset.instanceId = this.instanceID;
+            omnichessInstanceElem.innerHTML = `
             <div class="highlight-indicator hidden"></div>
             <div class="connection-warning hidden">
                 <div class="connection-warning-title">${TRANS_OBJ?.losingConnection ?? 'Losing connection'}</div>
@@ -98,12 +98,12 @@ export default async function setupEnvironment(startpos, dimensions) {
                     </div>
                     <div class="instance-domain" title="${TRANS_OBJ?.instanceDomain ?? 'Instance Domain'}"></div>
                     <div class="instance-fen-container">
-                        <div class="instance-fen-btn acas-fancy-button">${TRANS_OBJ?.showFenBtn ?? 'Show FEN'}</div>
+                        <div class="instance-fen-btn omnichess-fancy-button">${TRANS_OBJ?.showFenBtn ?? 'Show FEN'}</div>
                         <div class="instance-fen hidden" title="${TRANS_OBJ?.instanceFen ?? 'Instance Fen'}"></div>
                     </div>
                 </div>
                 <div class="instance-misc">
-                    <div class="instance-settings-btn ${IS_INSTANCE_SETTING_BTN_DISABLED ? 'disabled' : ''} acas-fancy-button" title="${TRANS_OBJ?.openInstanceSettingsBtn ?? 'Open Instance Settings'}">⚙️</div>
+                    <div class="instance-settings-btn ${IS_INSTANCE_SETTING_BTN_DISABLED ? 'disabled' : ''} omnichess-fancy-button" title="${TRANS_OBJ?.openInstanceSettingsBtn ?? 'Open Instance Settings'}">⚙️</div>
                     <div class="instance-info-text"></div>
                 </div>
             </div>
@@ -116,13 +116,13 @@ export default async function setupEnvironment(startpos, dimensions) {
             <div><div class="pseudoground-x"></div></div>
             `;
 
-        acasInstanceElem.style.width = instanceWidth;
+        omnichessInstanceElem.style.width = instanceWidth;
 
-        const instanceChessVariantElem = acasInstanceElem.querySelector('.instance-variant');
-        const instanceDomainElem = acasInstanceElem.querySelector('.instance-domain');
-        const instanceFenElem = acasInstanceElem.querySelector('.instance-fen');
-        const showFenBtn = acasInstanceElem.querySelector('.instance-fen-btn');
-        const chessboardComponentsElem = acasInstanceElem.querySelector('.chessboard-components');
+        const instanceChessVariantElem = omnichessInstanceElem.querySelector('.instance-variant');
+        const instanceDomainElem = omnichessInstanceElem.querySelector('.instance-domain');
+        const instanceFenElem = omnichessInstanceElem.querySelector('.instance-fen');
+        const showFenBtn = omnichessInstanceElem.querySelector('.instance-fen-btn');
+        const chessboardComponentsElem = omnichessInstanceElem.querySelector('.chessboard-components');
 
         showFenBtn.onclick = function() {
             instanceFenElem.classList.toggle('hidden');
@@ -141,7 +141,7 @@ export default async function setupEnvironment(startpos, dimensions) {
         instanceDomainElem.innerText = this.domain;
         instanceFenElem.innerText = fen;
 
-        this.instanceElem = acasInstanceElem;
+        this.instanceElem = omnichessInstanceElem;
 
         const settingsBtnElem = this.instanceElem.querySelector('.instance-settings-btn');
 
@@ -207,11 +207,11 @@ export default async function setupEnvironment(startpos, dimensions) {
         this.Interface.updateBoardOrientation(orientation);
         
         if(oldInstanceElem) {
-            acasInstanceContainer.replaceChild(this.instanceElem, oldInstanceElem);
+            omnichessInstanceContainer.replaceChild(this.instanceElem, oldInstanceElem);
 
             if(this.debugLogsEnabled) console.log(`Engine and GUI for variant "${variant}" updated!`);
         } else {
-            acasInstanceContainer.appendChild(this.instanceElem);
+            omnichessInstanceContainer.appendChild(this.instanceElem);
 
             if(this.debugLogsEnabled) console.log(`Engine and GUI for variant "${variant}" loaded!`);
 
@@ -229,7 +229,7 @@ export default async function setupEnvironment(startpos, dimensions) {
         this.instanceReady = true;
 
         if(fen.includes('8/8/8/8/8/8/8/8') && this.domain === 'chess.com') {
-            const msg = TRANS_OBJ?.emptyBoardChesscomWarning ?? 'Oh, the board seems to be empty. This is most likely caused by the site displaying the board as an image which A.C.A.S cannot parse.\n\nPlease disable "Piece Animations: Arcade" on Chess.com settings! (Set to "None")';
+            const msg = TRANS_OBJ?.emptyBoardChesscomWarning ?? 'Oh, the board seems to be empty. This is most likely caused by the site displaying the board as an image which OmniChess cannot parse.\n\nPlease disable "Piece Animations: Arcade" on Chess.com settings! (Set to "None")';
             toast.error(msg);
         }
 

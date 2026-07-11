@@ -158,7 +158,7 @@ async function refreshPipView() {
     ctxQueue.push(['fillRect', [0, 0, headerWidth, pipHeaderHeight - pipStatusBarHeight]]);
 
     // Header title
-    const headerTitle = pipData.engineName || 'A.C.A.S';
+    const headerTitle = pipData.engineName || 'OmniChess';
     ctxQueue.push(['fillStyle', 'white']);
     ctxQueue.push(['font', `800 ${pipFontSizes.medium}px Mona Sans`]);
     ctxQueue.push(['fillText', [headerTitle, 12, 32, pipMaxTextWidth]]);

@@ -3,7 +3,7 @@
 const DEFAULT_FULL_FEN = 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1';
 const LEFT_MIN_PERCENT = 15;
 const RIGHT_MIN_PERCENT = 15;
-const STORAGE_KEY = 'acas-tests-split';
+const STORAGE_KEY = 'omnichess-tests-split';
 
 const leftPanel = document.getElementById('left-panel');
 const rightPanel = document.getElementById('right-panel');

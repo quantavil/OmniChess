@@ -1,6 +1,6 @@
 // If you modify these strings, modify them on the userscript as well
 const USERSCRIPT_SHARED_VARS = {
-    gmConfigKey: 'AcasConfig',
+    gmConfigKey: 'OmniChessConfig',
     tempValueIndicator: '-temp-value-'
 };
 
@@ -48,7 +48,7 @@ function FORCE_CLOSE_ALL_INSTANCES() {
     if(now - LAST_FORCE_CLOSE_TIME < 3000) return;
     LAST_FORCE_CLOSE_TIME = now;
 
-    window.AcasInstances.forEach(iObj => {
+    window.OmniChessInstances.forEach(iObj => {
         if(iObj.instance && typeof iObj.instance.close === "function") {
             iObj.instance.close();
         }
@@ -62,7 +62,7 @@ function APPLY_ASSISTANCE_CONCEALMENT(isConcealed) {
 
     CONCEAL_ASSISTANCE_ACTIVE = isConcealed;
 
-    window.AcasInstances.forEach(async iObj => {
+    window.OmniChessInstances.forEach(async iObj => {
         if(iObj.instance && typeof iObj.instance.close === "function") {
             await WAIT_UNTIL_VAR(() => iObj.instance.BoardDrawer?.boardContainerElem);
             const BoardDrawerSvg = iObj.instance.BoardDrawer.boardContainerElem;
@@ -1201,7 +1201,7 @@ function GET_UNIQUE_ID() {
 }
 
 function GET_HUMAN_READABLE_ENGINE_NAME(name) {
-    if (!name) return 'A.C.A.S';
+    if (!name) return 'OmniChess';
     const mappings = {
         'stockfish-18-single': 'Stockfish 18',
         'stockfish-18-lite-single': 'Stockfish 18 Lite',
@@ -1212,7 +1212,7 @@ function GET_HUMAN_READABLE_ENGINE_NAME(name) {
         'lc0': 'Lc0',
         'lozza-9': 'Lozza 9',
         'lozza-5': 'Lozza 5',
-        'acas-fusion': 'Fusion α'
+        'omnichess-fusion': 'Fusion α'
     };
     return mappings[name] || name;
 }

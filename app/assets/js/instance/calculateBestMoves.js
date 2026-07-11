@@ -5,7 +5,7 @@ import { incrementUserUsageStat } from '../gui/stats.js';
 // This function is called every time a seemingly valid new board position is detected on the chess site DOM.
 // The userscript tries to filter out as many weird position changes as possible, but sometimes it can miss some.
 // For example when a move is played and the opponent's piece disappears from the board before the player's piece appears on the board,
-// it can look like a legal position change (1 piece disappeared, 1 piece appeared) but it is not. Wrong fens like this might break A.C.A.S.
+// it can look like a legal position change (1 piece disappeared, 1 piece appeared) but it is not. Wrong fens like this might break OmniChess.
 export default async function calculateBestMoves(currentFen, config = {}) {
     if(!currentFen) return;
 
@@ -30,7 +30,7 @@ export default async function calculateBestMoves(currentFen, config = {}) {
         // Do not calculate if pawn is on promotion square, it's "not a legal position" and engines can get stuck on it
         if(this.isPawnOnPromotionSquare(currentFen)) return;
         // Engine is still calculating, do not start any new calculation since,
-        // that will not give us 'bestmove' which A.C.A.S' logic EXPECTS.
+        // that will not give us 'bestmove' which OmniChess' logic EXPECTS.
         // The best moves will be calculated after we get the 'bestmove'.
         if(this.isEngineCalculating(profileName)) return;
 
@@ -97,11 +97,11 @@ export default async function calculateBestMoves(currentFen, config = {}) {
         // This is just a backup. It's not terrible to go infinite depth but problematic.
         let searchCommandStr = 'go infinite' + specificMoves;
 
-        const rawEngineName = this.getEngineAcasObj(profileName)?.type;
+        const rawEngineName = this.getEngineOmniChessObj(profileName)?.type;
         const engineName = GET_HUMAN_READABLE_ENGINE_NAME(rawEngineName);
 
         switch(await this.getEngineName(profileName)) {
-            case 'acas-fusion':
+            case 'omnichess-fusion':
                 const calcDepth = this.pV[profileName].searchDepth || 100;
 
                 const moveHistory = this.moveHistory
@@ -116,7 +116,7 @@ export default async function calculateBestMoves(currentFen, config = {}) {
 
             default:
                 // The search is "infinite" if the searchDepth is null. The engine's max depth seems to be 245 on 'go infinite',
-                // but if it reaches that max depth on 'go infinite' it does not give 'bestmove'. A.C.A.S expects a bestmove, so that is no good.
+                // but if it reaches that max depth on 'go infinite' it does not give 'bestmove'. OmniChess expects a bestmove, so that is no good.
                 // That is why we limit the infinite search depth ourselves.
                 const depth = this.pV[profileName].searchDepth || 100;
                 const nodes = this.pV[profileName].engineNodes;

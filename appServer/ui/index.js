@@ -46,7 +46,7 @@ addEngineBtn.onclick = async () => {
         path: filePath
     };
 
-    const title = await AcasPrompt.prompt('Enter a custom name for this engine (optional):', fileInfo.name) || fileInfo.name;
+    const title = await OmniChessPrompt.prompt('Enter a custom name for this engine (optional):', fileInfo.name) || fileInfo.name;
 
     try {
         const result = await window.engineAPI.addEngine(fileInfo, title);
@@ -79,7 +79,7 @@ async function renderEngineGrid(savedEngines) {
         if(engineUiGrid.querySelector(`[data-engine-id="${engine.engineId}"]`)) return;
 
         const card = document.createElement('div');
-        card.className = 'card engine-card acas-fancy-button';
+        card.className = 'card engine-card omnichess-fancy-button';
         card.dataset.engineId = engine.engineId;
 
         const top = document.createElement('div');
@@ -90,7 +90,7 @@ async function renderEngineGrid(savedEngines) {
         title.textContent = engine.title;
 
         const removeBtn = document.createElement('button');
-        removeBtn.className = 'remove-btn acas-fancy-button';
+        removeBtn.className = 'remove-btn omnichess-fancy-button';
         removeBtn.onclick = async (e) => {
             e.stopPropagation();
 
@@ -117,7 +117,7 @@ async function renderEngineGrid(savedEngines) {
         card.appendChild(bottom);
 
         card.onclick = () => {
-            toast.message('Please control the engine from the A.C.A.S web GUI!', 1000);
+            toast.message('Please control the engine from the OmniChess web GUI!', 1000);
         };
 
         engineUiGrid.appendChild(card);

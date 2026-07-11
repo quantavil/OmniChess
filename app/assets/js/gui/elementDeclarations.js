@@ -1,7 +1,7 @@
-export const acasInstanceContainer = document.querySelector('#acas-instance-container');
+export const omnichessInstanceContainer = document.querySelector('#omnichess-instance-container');
 export const noInstancesContainer = document.querySelector('#no-instances-container');
 
-export const settingsContainerElem = document.querySelector('#acas-settings-container');
+export const settingsContainerElem = document.querySelector('#omnichess-settings-container');
 export const settingsHeaderElem = document.querySelector('#settings-header');
 export const settingsNavbarContainerElem = document.querySelector('#settings-navbar-container');
 export const settingsNavbarElem = document.querySelector('#settings-navbar');

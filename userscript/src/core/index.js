@@ -339,14 +339,14 @@ async function checkBoardOrientationChange() {
     return boardOrientationChanged;
 }
 
-async function isAcasBackendReady() {
+async function isOmniChessBackendReady() {
     const res = await state.commLink.commands.ping();
 
     return res ? true : false;
 }
 
 async function refreshSettings() {
-    const config = GM_getValue(dbValues.AcasConfig);
+    const config = GM_getValue(dbValues.OmniChessConfig);
     const profiles = config?.global?.profiles;
 
     if(typeof profiles != 'object') return;
@@ -356,7 +356,7 @@ async function refreshSettings() {
 }
 
 function isBoardDrawerNeeded() {
-    const config = GM_getValue(dbValues.AcasConfig);
+    const config = GM_getValue(dbValues.OmniChessConfig);
 
     const gP = config?.global?.profiles;
     const iP = config?.instance?.[commLinkInstanceID]?.profiles;
@@ -447,7 +447,7 @@ function startWhenBackendReady() {
     const interval = state.commLink.setIntervalAsync(async () => {
         i++;
 
-        if(await isAcasBackendReady()) {
+        if(await isOmniChessBackendReady()) {
             start();
 
             isCheckingBackendReady = false;
@@ -455,7 +455,7 @@ function startWhenBackendReady() {
         } else if(timesUrlForceOpened === 0 && (i % 10 === 0)) {
             timesUrlForceOpened++;
 
-            const config = GM_getValue(dbValues.AcasConfig);
+            const config = GM_getValue(dbValues.OmniChessConfig);
             const isGhost = config?.global?.[configKeys.isUserscriptGhost];
 
             const lastForceOpen = GM_getValue('lastForceOpenTime') || 0;

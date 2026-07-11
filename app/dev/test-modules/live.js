@@ -166,7 +166,7 @@ export async function init(container, { test }) {
                     resolve();
                 } else {
                     try {
-                        worker.postMessage({ method: 'acas_check_loaded' });
+                        worker.postMessage({ method: 'omnichess_check_loaded' });
                     } catch {}
                 }
             }, 200);

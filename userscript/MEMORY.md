@@ -1,7 +1,7 @@
-# Project: ACAS-bot (OmniChess)
+# Project: OmniChess-bot (OmniChess)
 
 ## Overview
-OmniChess (formerly ACAS-bot) is a userscript that enhances chess performance with a cutting-edge real-time move analysis and strategy assistance system. It runs on websites like chess.com, lichess.org, playstrategy.org, pychess.org, gameknot.com, etc., communicating with a local or hosted backend.
+OmniChess (formerly OmniChess-bot) is a userscript that enhances chess performance with a cutting-edge real-time move analysis and strategy assistance system. It runs on websites like chess.com, lichess.org, playstrategy.org, pychess.org, gameknot.com, etc., communicating with a local or hosted backend.
 
 ## Structure
 - [dist/main.js](file:///home/quantavil/Documents/Project/OmniChess/userscript/dist/main.js): Compiled output userscript.
@@ -29,7 +29,7 @@ OmniChess (formerly ACAS-bot) is a userscript that enhances chess performance wi
 - Minimize changes to only what is requested.
 
 ### Insights
-- Renamed the userscript from ACAS-bot to OmniChess and updated version to 1.0.0 (keeping internal database keys and communication APIs intact for compatibility).
+- Renamed the userscript from OmniChess-bot to OmniChess and updated version to 1.0.0 (keeping internal database keys and communication APIs intact for compatibility).
 - Fixed coordinate ranks vs files terminology swap in `coordinates.js` to avoid incorrect pawn promotion logic.
 - Restructured flat `src/` files into nested domain subdirectories (`core/`, `drawing/`, `adapters/`, `utils/`) to isolate concerns.
 - Decoupled monolithic files to distribute sandboxing, FEN calculations, auto-move logic, and CommLink integration into modular files.

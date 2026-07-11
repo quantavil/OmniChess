@@ -5,7 +5,7 @@ OmniChess is a modular, high-performance chess assistance userscript that provid
 ---
 
 ## ❤️ Credits
-This project is a modularized, optimized, and heavily enhanced fork of the original [A.C.A.S Userscript by HKR/Psyyke](https://greasyfork.org/en/scripts/459137-1-chess-assistant-a-c-a-s-advanced-chess-assistance-system).
+This project is a modularized, optimized, and heavily enhanced fork of the original [OmniChess Userscript by HKR/Psyyke](https://greasyfork.org/en/scripts/459137-1-chess-assistant-a-c-a-s-advanced-chess-assistance-system).
 
 ## 🌟 Key Enhancements & Changes
 Unlike the original monolithic userscript, our fork introduces several key structural and functional improvements:
@@ -40,8 +40,8 @@ flowchart LR
         B -->|UniversalBoardDrawer| C[Overlay Graphics / SVGs]
     end
 
-    subgraph Browser Tab 2: ACAS GUI [quantavil.github.io/A.C.A.S]
-        F[ACAS Orchestrator] <-->|Worker / HTTP| G[Chess Engine \nStockfish / Lc0]
+    subgraph Browser Tab 2: OmniChess GUI [quantavil.github.io/OmniChess]
+        F[OmniChess Orchestrator] <-->|Worker / HTTP| G[Chess Engine \nStockfish / Lc0]
     end
 
     B <-->|Cross-Origin IPC via GM Storage| F
@@ -56,20 +56,20 @@ The userscript runs directly on the active chess tab. Its main responsibilities 
 * **Auto-Play:** Triggers programmatic pointer and mouse events to click, drag-and-drop, or alternate between them using "Natural (Hybrid)" mode (with Bezier curved trajectories) to automate playing the suggested engine move (if configured).
 
 ### 2. The Engine Backend (GUI)
-The engine runs inside the **ACAS GUI tab** (defaulting to the hosted [quantavil.github.io/A.C.A.S/app/](https://quantavil.github.io/A.C.A.S/app/) page or `localhost` during development).
+The engine runs inside the **OmniChess GUI tab** (defaulting to the hosted [quantavil.github.io/OmniChess/app/](https://quantavil.github.io/OmniChess/app/) page or `localhost` during development).
 * **Where the engine comes from:**
-  * **Web-Assembly (Wasm) Engines:** By default, ACAS runs chess engines like **Stockfish.js** or **Lc0** directly inside the browser using Web Workers. This means the engine runs locally inside the user's browser without requiring any local executable installation.
+  * **Web-Assembly (Wasm) Engines:** By default, OmniChess runs chess engines like **Stockfish.js** or **Lc0** directly inside the browser using Web Workers. This means the engine runs locally inside the user's browser without requiring any local executable installation.
   * **Native Engines:** For players needing high depths, multi-threading, or GPU acceleration, the GUI can connect to a local native helper server running on the host system. This server hooks into local, compiled native chess engine executables (like Stockfish binary or Lc0 running on CUDA).
 * The GUI page also contains the dashboard to configure engine depth/nodes, select engine profiles, fine-tune auto-move intervals (with options for click, drag, or natural hybrid moves), and customize visuals.
 
 ### 3. The Communication Bridge (`CommLink`)
-Because the chess tab (e.g., `chess.com`) and the ACAS backend tab (`quantavil.github.io`) are hosted on different domains, browser sandboxing prevents them from calling each other directly.
+Because the chess tab (e.g., `chess.com`) and the OmniChess backend tab (`quantavil.github.io`) are hosted on different domains, browser sandboxing prevents them from calling each other directly.
 
 OmniChess bypasses this using **Userscript Storage (Greasemonkey API)** as a shared IPC (Inter-Process Communication) channel:
 1. When a new board state is detected, the userscript writes a packet prefixed with `commlink-packet-` (containing the current FEN, orientation, variant, etc.) into Greasemonkey storage (`GM_setValue`).
-2. The ACAS backend GUI page constantly polls for new packets, reads the FEN, evaluates the best move using the chess engine, and updates the packet in GM storage with the result.
+2. The OmniChess backend GUI page constantly polls for new packets, reads the FEN, evaluates the best move using the chess engine, and updates the packet in GM storage with the result.
 3. The userscript polls the same storage, reads the best move results, deletes the packet to clean up, and visually highlights/plays the moves.
-4. If the userscript doesn't detect a running backend, it automatically opens the ACAS GUI page in a new background tab (`GM_openInTab`) to initialize the engine.
+4. If the userscript doesn't detect a running backend, it automatically opens the OmniChess GUI page in a new background tab (`GM_openInTab`) to initialize the engine.
 
 ---
 

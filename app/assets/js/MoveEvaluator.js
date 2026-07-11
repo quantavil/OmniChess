@@ -1,6 +1,6 @@
 import { incrementUserUsageStat } from './gui/stats.js';
 
-/* [A.C.A.S MoveEvaluator]
+/* [OmniChess MoveEvaluator]
  * - License: GPLv3
  * - Version: 0.2
  * - Notes: Currently doesn't support chess variations

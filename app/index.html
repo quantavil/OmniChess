@@ -7,13 +7,13 @@
 		<meta name="description" content="Real-time chess assistant and move suggestions for Chess.com, Lichess, and more. Works on Android, Windows, and on so many other devices!">
 		<meta name="keywords" content="chess gui, chess assistant dashboard, stockfish settings, lichess helper, chess.com helper, board overlays, chess variants, engine elo">
 		<meta property="og:title" content="Advanced Chess Assist">
-		<meta property="og:description" content="A.C.A.S allows you to configure engines, visuals, and other assistance features for real‑time chess assistance on popular sites such as Chess.com.">
+		<meta property="og:description" content="OmniChess allows you to configure engines, visuals, and other assistance features for real‑time chess assistance on popular sites such as Chess.com.">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<script src="coi-serviceworker.js?v=2"></script>
 		<link rel="manifest" href="manifest.json" />
 		<link rel="modulepreload" href="./assets/js/init.js">
 		<link rel="modulepreload" href="./assets/js/instanceManager.js">
-		<link rel="modulepreload" href="./assets/js/AcasInstance.js">
+		<link rel="modulepreload" href="./assets/js/OmniChessInstance.js">
 		<link rel="modulepreload" href="./assets/js/MoveEvaluator.js">
 		<link rel="modulepreload" href="./assets/js/BoardAnalyzer.js">
 		<link rel="modulepreload" href="./assets/js/instance/loadEngine.js">
@@ -26,7 +26,7 @@
 		<link rel="modulepreload" href="./assets/js/instance/setupEnvironment.js">
 		<link rel="modulepreload" href="./assets/js/instance/engineStartNewGame.js">
 		<link rel="modulepreload" href="../assets/libraries/chessgroundx/chessground.js">
-		<link rel="modulepreload" href="./assets/js/AcasWebSocketClient.js">
+		<link rel="modulepreload" href="./assets/js/OmniChessWebSocketClient.js">
 		<link rel="modulepreload" href="./assets/js/gui.js">
 		<script src="../assets/libraries/CommLink/CommLink.js"></script>
 		<script src="../assets/libraries/FileSaver/FileSaver.js"></script>
@@ -45,7 +45,7 @@
 		<link rel="stylesheet" type="text/css" href="../assets/css/theme-staunty.css"/>
 		<link rel="stylesheet" type="text/css" href="../assets/css/custom-scroll.css"/>
 		<link rel="stylesheet" type="text/css" href="../assets/css/custom-inputs.css"/>
-		<link rel="stylesheet" type="text/css" href="../assets/css/acas-toast.css"/>
+		<link rel="stylesheet" type="text/css" href="../assets/css/omnichess-toast.css"/>
 		<link rel="stylesheet" type="text/css" href="../assets/css/bg-textures.css"/>
 		<link rel="icon" type="image/x-icon" href="../favicon.ico"/>
 	</head>
@@ -79,43 +79,43 @@
 			</div>
 		</div>
 
-		<!-- ACAS HEADER CONTAINER-->
-		<div id="acas-header">
-			<a id="acas-logo" href="../" target="_blank">
-				<img id="acas-logo-img" src="../assets/images/logo.png">
-				<div id="acas-logo-text-container">
-					<div id="acas-logo-main">OmniChess<div id="acas-version-tag">V2</div></div>
-					<div id="acas-logo-secondary">Chess Assistance</div>
+		<!-- OmniChess HEADER CONTAINER-->
+		<div id="omnichess-header">
+			<a id="omnichess-logo" href="../" target="_blank">
+				<img id="omnichess-logo-img" src="../assets/images/logo.png">
+				<div id="omnichess-logo-text-container">
+					<div id="omnichess-logo-main">OmniChess<div id="omnichess-version-tag">V2</div></div>
+					<div id="omnichess-logo-secondary">Chess Assistance</div>
 				</div>
 			</a>
 			<a id="update-your-userscript-notification" class="hidden" href="https://greasyfork.org/en/scripts/583158">UPDATE YOUR USERSCRIPT, NEW FEATURES MIGHT NOT WORK ON YOUR VERSION</a>
-			<div id="acas-is-free-reminder">
-				<span>(´｡• ◡ •｡`) ♡ <span id="acas-is-free-reminder-text">Help by giving feedback!</span> ⤵</span>
-				<div class="acas-social-actions">
+			<div id="omnichess-is-free-reminder">
+				<span>(´｡• ◡ •｡`) ♡ <span id="omnichess-is-free-reminder-text">Help by giving feedback!</span> ⤵</span>
+				<div class="omnichess-social-actions">
 					<div class="language-dropdown-input"><div class="dropdown-input-container">
 						<img class="selected-language-img" src="../assets/images/flags/us.svg">
 						<div class="dropdown-list-container">
 						</div>
 					</div></div>
-					<a class="header-social-button greasyfork-button acas-fancy-button" href="https://greasyfork.org/en/scripts/583158/feedback" target="_blank" title="Give A.C.A.S positive feedback on Greasyfork" data-icon="chat"></a>
-					<a class="header-social-button github-button acas-fancy-button" href="https://github.com/quantavil/OmniChess" target="_blank" title="Star A.C.A.S on GitHub" data-icon="github"></a>
+					<a class="header-social-button greasyfork-button omnichess-fancy-button" href="https://greasyfork.org/en/scripts/583158/feedback" target="_blank" title="Give OmniChess positive feedback on Greasyfork" data-icon="chat"></a>
+					<a class="header-social-button github-button omnichess-fancy-button" href="https://github.com/quantavil/OmniChess" target="_blank" title="Star OmniChess on GitHub" data-icon="github"></a>
 				</div>
 			</div>
 		</div>
 
 		<div id="instance-size-change-container" class="hidden">
 			<div id="instance-size-change-modal">
-				<div id="decrease-instance-size-btn" class="instance-size-change-btn acas-fancy-button">-</div>
-				<div id="increase-instance-size-btn" class="instance-size-change-btn acas-fancy-button">+</div>
+				<div id="decrease-instance-size-btn" class="instance-size-change-btn omnichess-fancy-button">-</div>
+				<div id="increase-instance-size-btn" class="instance-size-change-btn omnichess-fancy-button">+</div>
 			</div>
 		</div>
 
-		<!-- ACAS INSTANCE CONTAINER-->
-		<div id="acas-instance-container">
+		<!-- OmniChess INSTANCE CONTAINER-->
+		<div id="omnichess-instance-container">
 			<div id="no-instances-container">
 				<div id="no-instances-title">Waiting for instances...</div>
 				<div id="no-instances-subtitle">Heya, how you doin'? Hopefully splendid. Aaanyhow... let's crack on with the games already! Open up a chess game site and let's make some moves together! I'm here for you buddy.</div>
-				<div id="see-supported-sites-btn" class="acas-fancy-button">See all supported sites</div>
+				<div id="see-supported-sites-btn" class="omnichess-fancy-button">See all supported sites</div>
 				<div id="no-instances-sites" class="hidden">
 					<div class="battletested-sites">
 						<div class="sites-header">
@@ -123,11 +123,11 @@
 							<div class="sites-subtitle">(Should work flawlessly)</div>
 						</div>
 						<div class="sites-list">
-							<a class="chess-site-link popular-chess-site-link acas-fancy-button" href="https://www.chess.com/play" target="_blank">Chess.com</a>
-							<a class="chess-site-link popular-chess-site-link acas-fancy-button" href="https://www.lichess.org" target="_blank">Lichess.org</a>
-							<a class="chess-site-link acas-fancy-button" href="https://playstrategy.org" target="_blank">Playstrategy.org</a>
-							<a class="chess-site-link acas-fancy-button" href="https://www.pychess.org/" target="_blank">Pychess.org</a>
-							<a class="chess-site-link acas-fancy-button" href="http://chess.net/" target="_blank">Chess.net</a>
+							<a class="chess-site-link popular-chess-site-link omnichess-fancy-button" href="https://www.chess.com/play" target="_blank">Chess.com</a>
+							<a class="chess-site-link popular-chess-site-link omnichess-fancy-button" href="https://www.lichess.org" target="_blank">Lichess.org</a>
+							<a class="chess-site-link omnichess-fancy-button" href="https://playstrategy.org" target="_blank">Playstrategy.org</a>
+							<a class="chess-site-link omnichess-fancy-button" href="https://www.pychess.org/" target="_blank">Pychess.org</a>
+							<a class="chess-site-link omnichess-fancy-button" href="http://chess.net/" target="_blank">Chess.net</a>
 						</div>
 					</div>
 					<div class="stable-sites">
@@ -136,10 +136,10 @@
 							<div class="sites-subtitle">(Works fine, but might have some minor bugs)</div>
 						</div>
 						<div class="sites-list">
-							<a class="chess-site-link acas-fancy-button" href="https://app.edchess.io/" target="_blank">EdChess.io</a>
-							<a class="chess-site-link acas-fancy-button" href="https://chess.org" target="_blank">Chess.org</a>
-							<a class="chess-site-link acas-fancy-button" href="https://papergames.io/en/chess" target="_blank">Papergames.io</a>
-							<a class="chess-site-link acas-fancy-button" href="https://www.coolmathgames.com/0-chess" target="_blank">Coolmathgames.com</a>
+							<a class="chess-site-link omnichess-fancy-button" href="https://app.edchess.io/" target="_blank">EdChess.io</a>
+							<a class="chess-site-link omnichess-fancy-button" href="https://chess.org" target="_blank">Chess.org</a>
+							<a class="chess-site-link omnichess-fancy-button" href="https://papergames.io/en/chess" target="_blank">Papergames.io</a>
+							<a class="chess-site-link omnichess-fancy-button" href="https://www.coolmathgames.com/0-chess" target="_blank">Coolmathgames.com</a>
 						</div>
 					</div>
 					<div class="unstable-sites">
@@ -148,12 +148,12 @@
 							<div class="sites-subtitle">(Might work fine, be buggy or not work at all)</div>
 						</div>
 						<div class="sites-list">
-							<a class="chess-site-link acas-fancy-button" href="https://chessarena.com/lobby" target="_blank">Chessarena.com</a>
-							<a class="chess-site-link acas-fancy-button" href="https://gameknot.com" target="_blank">Gameknot.com</a>
-							<a class="chess-site-link acas-fancy-button" href="https://immortal.game/" target="_blank">Immortal.game</a>
-							<a class="chess-site-link acas-fancy-button" href="https://www.freechess.club/" target="_blank">Freechess.club</a>
-							<a class="chess-site-link acas-fancy-button" href="https://www.chessclub.com" target="_blank">Chessclub.com</a>
-							<a class="chess-site-link acas-fancy-button" href="dev" target="_blank">(Developer Page)</a>
+							<a class="chess-site-link omnichess-fancy-button" href="https://chessarena.com/lobby" target="_blank">Chessarena.com</a>
+							<a class="chess-site-link omnichess-fancy-button" href="https://gameknot.com" target="_blank">Gameknot.com</a>
+							<a class="chess-site-link omnichess-fancy-button" href="https://immortal.game/" target="_blank">Immortal.game</a>
+							<a class="chess-site-link omnichess-fancy-button" href="https://www.freechess.club/" target="_blank">Freechess.club</a>
+							<a class="chess-site-link omnichess-fancy-button" href="https://www.chessclub.com" target="_blank">Chessclub.com</a>
+							<a class="chess-site-link omnichess-fancy-button" href="dev" target="_blank">(Developer Page)</a>
 						</div>
 					</div>
 				</div>
@@ -191,8 +191,8 @@
 			</div>
 		</dialog>
 		
-		<!-- ACAS SETTINGS CONTAINER-->
-		<div id="acas-settings-container">
+		<!-- OmniChess SETTINGS CONTAINER-->
+		<div id="omnichess-settings-container">
 			<div class="highlight-indicator hidden"></div>
 			<div id="settings-header">
 				<div id="settings-navbar-container" class="hidden">
@@ -206,11 +206,11 @@
 					</div>
 				</div>
 				<div id="settings-control-panel">
-					<a target="_about" href="../usage/" class="control-panel-btn no-select acas-fancy-button" title="Open Documentation" data-icon="book"></a>
-					<div id="toggle-pip-btn" class="control-panel-btn no-select acas-fancy-button" title="Toggle Floating Panel" data-icon="eye"></div>
-					<div id="import-settings-btn" class="control-panel-btn no-select acas-fancy-button" title="Import Settings" data-icon="import"></div>
-					<div id="export-settings-btn" class="control-panel-btn no-select acas-fancy-button" title="Export Settings" data-icon="export"></div>
-					<div id="reset-settings-btn" class="control-panel-btn no-select acas-fancy-button" title="Reset Settings" data-icon="trash"></div>
+					<a target="_about" href="../usage/" class="control-panel-btn no-select omnichess-fancy-button" title="Open Documentation" data-icon="book"></a>
+					<div id="toggle-pip-btn" class="control-panel-btn no-select omnichess-fancy-button" title="Toggle Floating Panel" data-icon="eye"></div>
+					<div id="import-settings-btn" class="control-panel-btn no-select omnichess-fancy-button" title="Import Settings" data-icon="import"></div>
+					<div id="export-settings-btn" class="control-panel-btn no-select omnichess-fancy-button" title="Export Settings" data-icon="export"></div>
+					<div id="reset-settings-btn" class="control-panel-btn no-select omnichess-fancy-button" title="Reset Settings" data-icon="trash"></div>
 				</div>
 			</div>
 			<div id="userscript-info-small"></div>
@@ -235,7 +235,7 @@
 								<a href="../usage/" target="_blank"><div class="input-subtitle">Read more here</div></a></div>
 
 								<div class="floaty-wrapper">
-									<button class="open-floaty-btn acas-fancy-button">⚙️</button>
+									<button class="open-floaty-btn omnichess-fancy-button">⚙️</button>
 								    <dialog id="engine-floaty">
 										<div class="floaty-container">
 											<section class="floaty-header">
@@ -244,7 +244,7 @@
 													<p data-translation-engine-subtitle>Please select the engine you like</p>
 												</div>
 												<div class="floaty-buttons">
-													<button class="floaty-close-btn acas-fancy-button" data-icon="close"></button>
+													<button class="floaty-close-btn omnichess-fancy-button" data-icon="close"></button>
 												</div>
 											</section>
 											<section class="floaty-body">
@@ -281,7 +281,7 @@
 																<div class="dropdown-item" data-value="lozza-5">
 																Lozza 5 <span class="engine-type-tag list-tag">JS</span> <span class="engine-size-tag list-tag">(400KB)</span> <span class="needs-fixing-engine-tag list-tag" data-translation-needs-fixing-tag="">Needs fixing</span>
 																</div>
-																<div class="dropdown-item force-hidden" data-value="acas-fusion">
+																<div class="dropdown-item force-hidden" data-value="omnichess-fusion">
 																Fusion α<span class="engine-type-tag list-tag">WASM</span> <span class="engine-size-tag list-tag">(>15MB)</span> <span class="realistic-engine-tag list-tag">Realistic</span>
 																</div>
 															</div>
@@ -299,7 +299,7 @@
 														<div class="dropdown-input-container">
 															<input disabled type="text" additional-type="dropdown" data-key="externalChessEngine" data-default-value="" placeholder="None"><div class="dropdown-icon"></div>
 															<div class="dropdown-list-container hidden" style="height: fit-content; max-height: 300px;"></div>
-															<p id="install-acas-server-text"><a href="/A.C.A.S/usage/#external" target="_blank"><span data-translation-external-engine-2>Install the OmniChess server</span></a> <span data-translation-external-engine-3>to use external engines</span></p>
+															<p id="install-omnichess-server-text"><a href="/OmniChess/usage/#external" target="_blank"><span data-translation-external-engine-2>Install the OmniChess server</span></a> <span data-translation-external-engine-3>to use external engines</span></p>
 														</div>
 													</div>
 													<p data-translation-experimental-warning>This feature is experimental, it might not work well!</p>
@@ -314,7 +314,7 @@
 							<div id="engine-elo-input" class="textfield-input custom-input"><div><div class="input-title">Engine ELO</div>
 								<div class="input-subtitle">Higher number, stronger engine</div></div>
 								<div class="floaty-wrapper">
-									<button class="open-floaty-btn acas-fancy-button">⚙️</button>
+									<button class="open-floaty-btn omnichess-fancy-button">⚙️</button>
 								    <dialog id="elo-floaty">
 										<div class="floaty-container">
 											<section class="floaty-header">
@@ -323,7 +323,7 @@
 													<p data-translation-adelo-subtitle>Settings for engine behaviour fine tuning</p>
 												</div>
 												<div class="floaty-buttons">
-													<button class="floaty-close-btn acas-fancy-button" data-icon="close"></button>
+													<button class="floaty-close-btn omnichess-fancy-button" data-icon="close"></button>
 												</div>
 											</section>
 											<section class="floaty-body">
@@ -425,7 +425,7 @@
 							<div class="floaty-input custom-input">
 								<div><div class="input-title" data-translation-rendering-title>Rendering Settings</div><div class="input-subtitle" data-translation-rendering-subtitle>Display various metrics on the board</div></div>
 								<div class="floaty-wrapper">
-									<button class="open-floaty-btn acas-fancy-button" data-icon="gear"></button>
+									<button class="open-floaty-btn omnichess-fancy-button" data-icon="gear"></button>
 								    <dialog id="rendering-floaty">
 										<div class="floaty-container">
 											<section class="floaty-header">
@@ -434,7 +434,7 @@
 													<p data-translation-rendering-subtitle>Display various metrics on the board</p>
 												</div>
 												<div class="floaty-buttons">
-													<button class="floaty-close-btn acas-fancy-button" data-icon="close"></button>
+													<button class="floaty-close-btn omnichess-fancy-button" data-icon="close"></button>
 												</div>
 											</section>
 											<section class="floaty-body">
@@ -484,7 +484,7 @@
 							<div class="floaty-input custom-input">
 								<div><div class="input-title" data-translation-feedback-title>Feedback Settings</div><div class="input-subtitle" data-translation-feedback-subtitle>Get feedback on your moves</div></div>
 								<div class="floaty-wrapper">
-									<button class="open-floaty-btn acas-fancy-button" data-icon="gear"></button>
+									<button class="open-floaty-btn omnichess-fancy-button" data-icon="gear"></button>
 								    <dialog id="feedback-floaty">
 										<div class="floaty-container">
 											<section class="floaty-header">
@@ -493,7 +493,7 @@
 													<p data-translation-feedback-subtitle>Get feedback on your moves</p>
 												</div>
 												<div class="floaty-buttons">
-													<button class="floaty-close-btn acas-fancy-button" data-icon="close"></button>
+													<button class="floaty-close-btn omnichess-fancy-button" data-icon="close"></button>
 												</div>
 											</section>
 											<section class="floaty-body">
@@ -531,7 +531,7 @@
 							<div class="floaty-input custom-input">
 								<div><div class="input-title" data-translation-accessibility-title>Accessibility Settings</div><div class="input-subtitle" data-translation-accessibility-subtitle>Improve your personal experience</div></div>
 								<div class="floaty-wrapper">
-									<button class="open-floaty-btn acas-fancy-button" data-icon="gear"></button>
+									<button class="open-floaty-btn omnichess-fancy-button" data-icon="gear"></button>
 								    <dialog id="accessibility-floaty">
 										<div class="floaty-container">
 											<section class="floaty-header">
@@ -540,7 +540,7 @@
 													<p data-translation-accessibility-subtitle>Improve your personal experience</p>
 												</div>
 												<div class="floaty-buttons">
-													<button class="floaty-close-btn acas-fancy-button" data-icon="close"></button>
+													<button class="floaty-close-btn omnichess-fancy-button" data-icon="close"></button>
 												</div>
 											</section>
 											<section class="floaty-body">

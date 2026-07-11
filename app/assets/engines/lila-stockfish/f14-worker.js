@@ -1,4 +1,4 @@
-import Fsf14Web from '/A.C.A.S/app/assets/engines/lila-stockfish/fsf14.js';
+import Fsf14Web from '/OmniChess/app/assets/engines/lila-stockfish/fsf14.js';
 
 let engine = null;
 
@@ -15,7 +15,7 @@ onmessage = e => {
         return;
     }
 
-    if(engine && method === 'acas_check_loaded') {
+    if(engine && method === 'omnichess_check_loaded') {
         postMessage(true);
 
         engine.listen = msg => postMessage(msg);

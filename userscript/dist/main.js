@@ -1,9 +1,9 @@
 // ==UserScript==
 // @name        OmniChess
 // @description        Enhance your chess performance with a cutting-edge real-time move analysis and strategy assistance system
-// @homepageURL https://quantavil.github.io/A.C.A.S
-// @supportURL  https://github.com/quantavil/A.C.A.S/tree/main#why-doesnt-it-work
-// @match       https://quantavil.github.io/A.C.A.S/*
+// @homepageURL https://quantavil.github.io/OmniChess
+// @supportURL  https://github.com/quantavil/OmniChess/tree/main#why-doesnt-it-work
+// @match       https://quantavil.github.io/OmniChess/*
 // @match       http://localhost/*
 // @match       https://www.chess.com/*
 // @match       https://lichess.org/*
@@ -21,7 +21,7 @@
 // @match       https://chess.net/*
 // @match       https://*.freechess.club/*
 // @match       https://app.edchess.io/*
-// @require     https://update.greasyfork.org/scripts/470417/UniversalBoardDrawerjs.js?acasv=2
+// @require     https://update.greasyfork.org/scripts/470417/UniversalBoardDrawerjs.js?omnichessv=2
 // @grant       GM_getValue
 // @grant       GM_setValue
 // @grant       GM_deleteValue
@@ -47,7 +47,7 @@
 // src/utils/config.js
 var backendConfig = {
   hosts: { prod: "quantavil.github.io", dev: "localhost" },
-  path: "/A.C.A.S/"
+  path: "/OmniChess/"
 };
 var domain = window.location.hostname.replace("www.", "");
 var pieceNameToFen = {
@@ -174,7 +174,7 @@ function createInstanceVariable(dbValue) {
 }
 var tempValueIndicator = "-temp-value-";
 var dbValues = {
-  AcasConfig: "AcasConfig",
+  OmniChessConfig: "OmniChessConfig",
   playerColor: (instanceID) => "playerColor" + tempValueIndicator + instanceID,
   turn: (instanceID) => "turn" + tempValueIndicator + instanceID,
   fen: (instanceID) => "fen" + tempValueIndicator + instanceID
@@ -189,7 +189,7 @@ function setGmConfigValue(key, value, instanceID, profileID) {
   if (typeof profileID === "object") {
     profileID = profileID.name;
   }
-  const configObj = GM_getValue(dbValues.AcasConfig) || {};
+  const configObj = GM_getValue(dbValues.OmniChessConfig) || {};
   if (profileID) {
     if (!configObj.instance)
       configObj.instance = {};
@@ -207,13 +207,13 @@ function setGmConfigValue(key, value, instanceID, profileID) {
       configObj.instance[instanceID] = {};
     configObj.instance[instanceID][key] = value;
   }
-  GM_setValue(dbValues.AcasConfig, configObj);
+  GM_setValue(dbValues.OmniChessConfig, configObj);
 }
 function getGmConfigValue(key, instanceID, profileID) {
   if (typeof profileID === "object") {
     profileID = profileID.name;
   }
-  const config2 = GM_getValue(dbValues.AcasConfig);
+  const config2 = GM_getValue(dbValues.OmniChessConfig);
   const instanceValue = config2?.instance?.[instanceID]?.[key];
   const globalValue = config2?.global?.[key];
   if (instanceValue !== undefined) {
@@ -2153,19 +2153,19 @@ async function checkBoardOrientationChange() {
   }
   return boardOrientationChanged;
 }
-async function isAcasBackendReady() {
+async function isOmniChessBackendReady() {
   const res = await state.commLink.commands.ping();
   return res ? true : false;
 }
 async function refreshSettings() {
-  const config2 = GM_getValue(dbValues.AcasConfig);
+  const config2 = GM_getValue(dbValues.OmniChessConfig);
   const profiles = config2?.global?.profiles;
   if (typeof profiles != "object")
     return;
   state.isMovesOnDemandActive = Object.keys(profiles).some((profileName) => profiles[profileName]?.movesOnDemand === true);
 }
 function isBoardDrawerNeeded() {
-  const config2 = GM_getValue(dbValues.AcasConfig);
+  const config2 = GM_getValue(dbValues.OmniChessConfig);
   const gP = config2?.global?.profiles;
   const iP = config2?.instance?.[commLinkInstanceID]?.profiles;
   const isGhost = config2?.global?.[configKeys.isUserscriptGhost];
@@ -2229,13 +2229,13 @@ function startWhenBackendReady() {
   let i = 0;
   const interval = state.commLink.setIntervalAsync(async () => {
     i++;
-    if (await isAcasBackendReady()) {
+    if (await isOmniChessBackendReady()) {
       start();
       isCheckingBackendReady = false;
       interval.stop();
     } else if (timesUrlForceOpened === 0 && i % 10 === 0) {
       timesUrlForceOpened++;
-      const config2 = GM_getValue(dbValues.AcasConfig);
+      const config2 = GM_getValue(dbValues.OmniChessConfig);
       const isGhost = config2?.global?.[configKeys.isUserscriptGhost];
       const lastForceOpen = GM_getValue("lastForceOpenTime") || 0;
       const now = Date.now();
@@ -3275,7 +3275,7 @@ addSupportedChessSite([
 
 // src/entry.js
 var getBaseStyleModification = () => {};
-if (typeof window !== "undefined" && window.__acas_preserve) {
+if (typeof window !== "undefined" && window.__omnichess_preserve) {
   console.log(setConfigValue, getElemCoordinatesFromLeftBottomPercentages, getFenPieceColor, getFenPieceOppositeColor, getCanvasPixelColor, canvasHasPixelAt, getSquareElems, getBaseStyleModification, convertPieceStrToFen, wait);
 }
 

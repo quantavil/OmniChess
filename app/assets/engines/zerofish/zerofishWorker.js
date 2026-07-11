@@ -1,4 +1,4 @@
-import zerofish from '/A.C.A.S/app/assets/engines/zerofish/zerofishEngine.js';
+import zerofish from '/OmniChess/app/assets/engines/zerofish/zerofishEngine.js';
 
 let engine = null;
 
@@ -14,7 +14,7 @@ onmessage = e => {
         return;
     }
 
-    if(engine && method === 'acas_check_loaded') {
+    if(engine && method === 'omnichess_check_loaded') {
         postMessage(true);
 
         engine.listenZero = msg => postMessage(msg);

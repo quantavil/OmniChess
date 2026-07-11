@@ -218,7 +218,7 @@ export async function fillDynamicEngineOptionContainer(uciMsg, profileName) {
 
             case 'button':
                 const btn = document.createElement('button');
-                btn.classList.add('acas-fancy-button');
+                btn.classList.add('omnichess-fancy-button');
                 btn.classList.add('dynamic-setting-button');
                 btn.title = name;
                 btn.innerText = '⚡';

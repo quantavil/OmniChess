@@ -33,7 +33,7 @@ export default async function engineMessageProcessor(msg, profile) {
             this.pV[profile].pendingCalculations.forEach(x => x.finished = true);
 
             // Let's start the new move calculation since we have now received the old 'bestmove'.
-            // A.C.A.S expects 'bestmove' to appear to finish up the calculation which is why we do this.
+            // OmniChess expects 'bestmove' to appear to finish up the calculation which is why we do this.
             // (Starting a new best move calculation while the old one was running, there would be no 'bestmove')
             this.calculateBestMoves(this.currentFen);
         }

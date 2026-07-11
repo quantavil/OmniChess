@@ -3,7 +3,7 @@
   "configVersion": 1,
   "workspaces": {
     "": {
-      "name": "acas-bot",
+      "name": "omnichess",
       "devDependencies": {
         "dependency-cruiser": "^17.4.3",
       },

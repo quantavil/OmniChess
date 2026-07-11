@@ -1,8 +1,8 @@
 import { externalChessEngineDropdown } from './gui/elementDeclarations.js';
-import AcasInstance from './AcasInstance.js';
+import OmniChessInstance from './OmniChessInstance.js';
 import { addInstanceToSettingsDropdown, removeInstanceFromSettingsDropdown } from './gui/instances.js';
 
-window.AcasInstances = [];
+window.OmniChessInstances = [];
 
 let initToasts = [];
 let instanceLock = Promise.resolve();
@@ -45,21 +45,21 @@ async function _createInstanceSafe(domain, instanceID, chessVariant) {
 
         if(isExternalReady) await new Promise(res => setTimeout(res, 1000));
 
-        const instanceExists = window.AcasInstances.find(instanceObj => instanceObj.id === instanceID);
+        const instanceExists = window.OmniChessInstances.find(instanceObj => instanceObj.id === instanceID);
 
         if(instanceExists) {
             prelongInstanceLife(domain, instanceID, chessVariant);
             return;
         }
 
-        const instance = new AcasInstance(
+        const instance = new OmniChessInstance(
             domain,
             instanceID,
             chessVariant,
             instanceLoaded
         );
 
-        window.AcasInstances.push({
+        window.OmniChessInstances.push({
             domain,
             id: instanceID,
             instance,
@@ -81,7 +81,7 @@ async function _createInstanceSafe(domain, instanceID, chessVariant) {
 }
 
 export function removeInstance(instance) {
-    window.AcasInstances = window.AcasInstances.filter(x => x.id !== instance.instanceID);
+    window.OmniChessInstances = window.OmniChessInstances.filter(x => x.id !== instance.instanceID);
 
     removeInstanceFromSettingsDropdown(instance.instanceID);
 }
@@ -96,7 +96,7 @@ function instanceLoaded(informationObj) {
 }
 
 function prelongInstanceLife(domain, instanceID, chessVariant) {
-    const instanceObj = window.AcasInstances.find(instanceObj => instanceObj.id === instanceID);
+    const instanceObj = window.OmniChessInstances.find(instanceObj => instanceObj.id === instanceID);
 
     if(instanceObj) {
         instanceObj.date = Date.now();
@@ -127,12 +127,12 @@ function prelongInstanceLife(domain, instanceID, chessVariant) {
 }
 
 setInterval(() => {
-    window.AcasInstances.forEach(instanceObj => {
+    window.OmniChessInstances.forEach(instanceObj => {
         const instanceAgeMs = Date.now() - instanceObj.date;
 
         if(instanceAgeMs > 4000) {
             if(instanceAgeMs > 10000) {
-                const warningMsg = TRANS_OBJ?.instanceConnectionTermination ?? 'Terminated instance due to lost connection.\n\nUnexpected? Visit the tab to reactivate A.C.A.S.';
+                const warningMsg = TRANS_OBJ?.instanceConnectionTermination ?? 'Terminated instance due to lost connection.\n\nUnexpected? Visit the tab to reactivate OmniChess.';
                 toast.warning(`${warningMsg} (${instanceObj.domain})`, 5000);
 
                 instanceObj.instance.close();

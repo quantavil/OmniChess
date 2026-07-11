@@ -1,4 +1,4 @@
-import { acasInstanceContainer, noInstancesContainer, settingsNavbarContainerElem, settingsNavbarElem,
+import { omnichessInstanceContainer, noInstancesContainer, settingsNavbarContainerElem, settingsNavbarElem,
   settingsNavbarSubtitleElem, settingsNavbarGlobalElem, settingsInstanceDropdownElem, settingsInstanceDropdownContentElem,
   instanceSizeChangeContainerElem } from './elementDeclarations.js';
 import { loopThroughAndUpdateSettingsValues } from './settings.js';
@@ -88,7 +88,7 @@ export function monitorInstanceTabs() {
 
 export function monitorInstances() {
     new MutationObserver(() => {
-        if([...acasInstanceContainer.querySelectorAll('.acas-instance')]?.length > 0) {
+        if([...omnichessInstanceContainer.querySelectorAll('.omnichess-instance')]?.length > 0) {
             noInstancesContainer.classList.add('hidden');
 
             instanceSizeChangeContainerElem.classList.remove('hidden');
@@ -101,10 +101,10 @@ export function monitorInstances() {
         }
 
         const isUserOnNotExistingInstanceTab = SETTING_FILTER_OBJ?.instanceID
-            && !document.querySelector(`.acas-instance[data-instance-id="${SETTING_FILTER_OBJ?.instanceID}"]`);
+            && !document.querySelector(`.omnichess-instance[data-instance-id="${SETTING_FILTER_OBJ?.instanceID}"]`);
         
         if(isUserOnNotExistingInstanceTab) {
             toggleSelectedNavbarItem(settingsNavbarGlobalElem);
         }
-    }).observe(acasInstanceContainer, { childList: true, subtree: true });
+    }).observe(omnichessInstanceContainer, { childList: true, subtree: true });
 }

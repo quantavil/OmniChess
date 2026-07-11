@@ -253,7 +253,7 @@ button { cursor: pointer; border: none; border-radius: 4px; transition: 0.2s; }
 .hidden {
     display: none !important;
 }
-#acas-is-free-reminder {
+#omnichess-is-free-reminder {
     font-size: 15px;
     font-weight: 500;
     color: #ededed;
@@ -261,7 +261,7 @@ button { cursor: pointer; border: none; border-radius: 4px; transition: 0.2s; }
     flex-direction: column;
     gap: 5px;
 }
-#acas-is-free-reminder .acas-social-actions {
+#omnichess-is-free-reminder .omnichess-social-actions {
     display: flex;
     flex-direction: row-reverse;
     grid-gap: 5px;
@@ -402,7 +402,7 @@ button { cursor: pointer; border: none; border-radius: 4px; transition: 0.2s; }
     display: block;
 }
 
-.acas-fancy-button {
+.omnichess-fancy-button {
     border-width: 2px !important;
     border-bottom-width: 5px !important;
     user-select: none;
@@ -420,18 +420,18 @@ button { cursor: pointer; border: none; border-radius: 4px; transition: 0.2s; }
     color: rgba(255, 255, 255, 0.75);
     gap: 5px;
 }
-.acas-fancy-button:hover {
+.omnichess-fancy-button:hover {
     transform: scale(1.05);
     cursor: pointer;
 }
-.acas-fancy-button:active {
+.omnichess-fancy-button:active {
     border-width: 2px !important;
     transform: translateY(3px) !important;
     margin-top: 3px !important;
 }
 
-/* ACAS header and logo styles */
-#acas-header {
+/* OmniChess header and logo styles */
+#omnichess-header {
     padding: 15px 20px 20px;
     background-color: rgb(0 0 0 / 70%);
     height: 50px;
@@ -444,7 +444,7 @@ button { cursor: pointer; border: none; border-radius: 4px; transition: 0.2s; }
     border-bottom: 4px solid rgb(0 0 0 / 35%);
     overflow-y: clip;
 }
-#acas-logo {
+#omnichess-logo {
     font-size: 30px;
     font-weight: 600;
     color: white;
@@ -460,11 +460,11 @@ button { cursor: pointer; border: none; border-radius: 4px; transition: 0.2s; }
     margin-left: -20px;
     user-select: none;
 }
-#acas-logo:hover {
+#omnichess-logo:hover {
     transform: scale(1.03);
     cursor: pointer;
 }
-#acas-logo-img {
+#omnichess-logo-img {
     width: 150px;
     position: absolute;
     opacity: 0.2;
@@ -472,24 +472,24 @@ button { cursor: pointer; border: none; border-radius: 4px; transition: 0.2s; }
     margin-top: 30px;
     filter: grayscale(1);
 }
-#acas-logo-text-container {
+#omnichess-logo-text-container {
 	z-index: 1;
 	margin-left: 30px;
 }
-#acas-version-tag {
+#omnichess-version-tag {
     font-size: 15px;
     font-weight: 200;
     font-family: "IBM Plex Sans";
     margin-left: 3px;
 }
-#acas-logo-main {
+#omnichess-logo-main {
     display: flex;
     align-items: flex-start;
     font-stretch: ultra-expanded;
     font-weight: 800;
     font-family: "Mona Sans";
 }
-#acas-logo-secondary {
+#omnichess-logo-secondary {
     font-size: 15px;
     font-weight: 100;
 }

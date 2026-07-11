@@ -385,7 +385,7 @@ main {
     border-left: 3px solid #213a43;
     border-right: 3px solid #213a43;
 }
-.acas-logo-main {
+.omnichess-logo-main {
     font-size: 32px;
     display: flex;
     font-weight: 900;
@@ -393,7 +393,7 @@ main {
     font-family: "Mona Sans";
     text-decoration: none;
 }
-.acas-logo-main span {
+.omnichess-logo-main span {
     font-size: 0.6em;
     font-weight: 600;
 }
@@ -768,7 +768,7 @@ ul {
         min-width: 200px;
         min-height: 200px;
     }
-    .acas-logo-main {
+    .omnichess-logo-main {
         font-size: 24px;
     }
     header a {

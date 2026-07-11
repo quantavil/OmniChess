@@ -55,8 +55,8 @@ function addConsoleView(identifierObj) {
         <b class="console-engine-name">Console</b>
         <div class="console-header">
             <input type="text" class="logFilter" placeholder="Filter (depth, pv, ...)" />
-            <button class="acas-fancy-button clearBtn" title="Clear console">Clear</button>
-            <button class="pauseBtn acas-fancy-button">Pause</button>
+            <button class="omnichess-fancy-button clearBtn" title="Clear console">Clear</button>
+            <button class="pauseBtn omnichess-fancy-button">Pause</button>
         </div>
         <div class="log"></div>
         <div class="input-area">

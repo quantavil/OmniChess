@@ -1,4 +1,4 @@
-importScripts('/A.C.A.S/app/assets/engines/fairy-stockfish-nnue.wasm/stockfish.js');
+importScripts('/OmniChess/app/assets/engines/fairy-stockfish-nnue.wasm/stockfish.js');
 
 let engine = null;
 
@@ -14,7 +14,7 @@ onmessage = e => {
         return;
     }
 
-    if(engine && method === 'acas_check_loaded') {
+    if(engine && method === 'omnichess_check_loaded') {
         postMessage(true);
 
         engine.addMessageListener(postMessage);

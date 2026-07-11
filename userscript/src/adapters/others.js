@@ -561,7 +561,7 @@ addSupportedChessSite('app.edchess.io', {
     }
 });
 
-// --- ACAS backend GUI page ---
+// --- OmniChess backend GUI page ---
 addSupportedChessSite([
     backendConfig?.hosts?.prod || 'quantavil.github.io',
     backendConfig?.hosts?.dev || 'localhost'

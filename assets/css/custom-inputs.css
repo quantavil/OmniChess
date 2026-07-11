@@ -382,7 +382,7 @@ input:focus {
 .language-dropdown-input .dropdown-item:hover {
     background-color: rgb(255 255 255 / 20%);
 }
-.acas-fancy-button {
+.omnichess-fancy-button {
     border: 1px solid rgba(255, 255, 255, 0.1) !important;
     background-color: rgba(255, 255, 255, 0.03);
     border-radius: 6px !important;
@@ -394,13 +394,13 @@ input:focus {
     transition: transform 0.15s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.15s, border-color 0.15s;
     box-shadow: none !important;
 }
-.acas-fancy-button:hover {
+.omnichess-fancy-button:hover {
     background-color: rgba(255, 255, 255, 0.08);
     border-color: rgba(255, 255, 255, 0.2) !important;
     transform: translateY(-1px);
     cursor: pointer;
 }
-.acas-fancy-button:active {
+.omnichess-fancy-button:active {
     transform: scale(0.97) !important;
     background-color: rgba(255, 255, 255, 0.04);
 }

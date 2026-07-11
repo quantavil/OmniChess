@@ -4,7 +4,7 @@
 > OmniChess is currently in development. Expect bugs, especially on variant games.
 
 > [!NOTE]
-> The OmniChess userscript source code and build instructions are located in the [userscript/](file:///home/quantavil/Documents/Project/OmniChess/userscript) directory of this repository. This project is a modularized, optimized, and heavily enhanced fork of the original [A.C.A.S system by HKR/Psyyke](https://greasyfork.org/en/scripts/459137-1-chess-assistant-a-c-a-s-advanced-chess-assistance-system).
+> The OmniChess userscript source code and build instructions are located in the [userscript/](file:///home/quantavil/Documents/Project/OmniChess/userscript) directory of this repository. This project is a modularized, optimized, and heavily enhanced fork of the original [OmniChess system by HKR/Psyyke](https://greasyfork.org/en/scripts/459137-1-chess-assistant-a-c-a-s-advanced-chess-assistance-system).
 
 OmniChess is an open-source, multi-engine, multi-variant chess assistance system. It provides real-time strategic overlays (threat heatmaps, move markers, multiple suggestions) directly on chess platforms via a userscript communicating with a separate web-based GUI. 
 

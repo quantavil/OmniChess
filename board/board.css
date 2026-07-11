@@ -48,7 +48,7 @@ body {
     width: min(90vw, 90svh);
     height: min(90svh, 90vw);
 }
-.back-to-acas-link {
+.back-to-omnichess-link {
     position: absolute;
     top: 10px;
     left: 10px;

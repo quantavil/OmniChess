@@ -13,7 +13,7 @@ export default async function loadEngine(profileName, engineName, attempt = 0) {
     }
 
     if(engineName && attempt > 10) {
-        toast.warning(`Restarting the engine ${engineName} failed despite many attempts :(\n\nRefresh A.C.A.S!`);
+        toast.warning(`Restarting the engine ${engineName} failed despite many attempts :(\n\nRefresh OmniChess!`);
         
         setProfileBubbleStatus('error', profileName, 'Engine crashed, could not restart it.');
 
@@ -102,7 +102,7 @@ export default async function loadEngine(profileName, engineName, attempt = 0) {
                 return;
             }
 
-            stockfish.postMessage({ method: 'acas_check_loaded' });
+            stockfish.postMessage({ method: 'omnichess_check_loaded' });
         }, 100);
 
         stockfish.onerror = e => {
@@ -138,7 +138,7 @@ export default async function loadEngine(profileName, engineName, attempt = 0) {
                 return;
             }
 
-            stockfish.postMessage({ method: 'acas_check_loaded' });
+            stockfish.postMessage({ method: 'omnichess_check_loaded' });
         }, 100);
 
         stockfish.onerror = e => {
@@ -176,7 +176,7 @@ export default async function loadEngine(profileName, engineName, attempt = 0) {
                 return;
             }
 
-            lc0.postMessage({ method: 'acas_check_loaded' });
+            lc0.postMessage({ method: 'omnichess_check_loaded' });
         }, 100);
 
         lc0.onerror = e => {
@@ -212,11 +212,11 @@ export default async function loadEngine(profileName, engineName, attempt = 0) {
                 return;
             }
 
-            Fusion.postMessage({ method: 'acas_check_loaded' });
+            Fusion.postMessage({ method: 'omnichess_check_loaded' });
         }, 100);
 
         Fusion.onerror = e => {
-            restartEngine.bind(this)('acas-fusion', e);
+            restartEngine.bind(this)('omnichess-fusion', e);
         };
     }
 
@@ -238,7 +238,7 @@ export default async function loadEngine(profileName, engineName, attempt = 0) {
     }
 
     function loadMaia3() {
-        const maia = new Worker('../app/assets/engines/Maia3/acasWorker.js', { type: 'module' });
+        const maia = new Worker('../app/assets/engines/Maia3/omnichessWorker.js', { type: 'module' });
         let maia_loaded = false;
 
         maia.onmessage = async e => {
@@ -300,7 +300,7 @@ export default async function loadEngine(profileName, engineName, attempt = 0) {
             loadLc0.bind(this)();
             break;
 
-        case 'acas-fusion':
+        case 'omnichess-fusion':
             loadFusion.bind(this)();
             break;
 

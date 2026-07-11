@@ -1,7 +1,7 @@
-import { acasInstanceContainer, ttsNameDropdownElem, ttsSpeedRangeElem, chessVariantDropdown, enemyEloInputContainer,
+import { omnichessInstanceContainer, ttsNameDropdownElem, ttsSpeedRangeElem, chessVariantDropdown, enemyEloInputContainer,
   engineEloInput, lc0WeightDropdown, chess960Checkbox, advancedEloEnableInput, normalEloInput, basicAdvancedSettingsPanel,
   chessEngineInput, externalChessEngineDropdown, engineNodesInput, advancedEloDepthInput, chessEngineDropdown } from './elementDeclarations.js';
-import { connectAcasToServer, disconnectAcasFromServer } from '../AcasWebSocketClient.js';
+import { connectOmniChessToServer, disconnectOmniChessFromServer } from '../OmniChessWebSocketClient.js';
 import { ensureOneDynamicEngineSettingVisible } from './dynamicEngineOptions.js';
 import { setIsExternalEngineSettingActive } from './externalEngine.js';
 import { setProfileBubbleStatus } from './profiles.js';
@@ -55,7 +55,7 @@ export function runSettingChangeObserver(inputElem, delayMs = 0, wasCalledByUpda
 
             break;
         case 'backgroundTextureClass':
-            acasInstanceContainer.className = value;
+            omnichessInstanceContainer.className = value;
 
             console.log('[Setting Handler] Set background texture to', value || 'nothing');
 
@@ -139,8 +139,8 @@ export function runSettingChangeObserver(inputElem, delayMs = 0, wasCalledByUpda
 
             if(!wasCalledByUpdateLoop) location.reload();
             else {
-                if(isAnyProfileUsingExternal) connectAcasToServer();
-                else disconnectAcasFromServer();
+                if(isAnyProfileUsingExternal) connectOmniChessToServer();
+                else disconnectOmniChessFromServer();
             }
 
             break;
@@ -213,7 +213,7 @@ export function runSettingChangeObserver(inputElem, delayMs = 0, wasCalledByUpda
                 FORCE_CLOSE_ALL_INSTANCES
             );
 
-            window.AcasInstances.forEach(iObj => {
+            window.OmniChessInstances.forEach(iObj => {
                 iObj.instance.CommLink.commands.updateRestartListener(value);
             });
 
@@ -227,7 +227,7 @@ export function runSettingChangeObserver(inputElem, delayMs = 0, wasCalledByUpda
                 TOGGLE_CONCEAL_ASSISTANCE
             );
 
-            window.AcasInstances.forEach(iObj => {
+            window.OmniChessInstances.forEach(iObj => {
                 iObj.instance.CommLink.commands.updateConcealAssistanceListener(value);
             });
 

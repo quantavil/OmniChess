@@ -217,7 +217,7 @@ export function stopLocalWSS() {
     wssRef = null;
 }
 
-// This doesnt use instanceId, so it will be sent to every A.C.A.S instance
+// This doesnt use instanceId, so it will be sent to every OmniChess instance
 // might cause issues later on but right now doesn't seem to be a big deal!
 export function sendEnginesList() {
     broadcastToClients({ type: 'enginesList', msg: savedEngines });

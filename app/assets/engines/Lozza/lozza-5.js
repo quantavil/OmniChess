@@ -4705,7 +4705,7 @@ lozBoard.prototype.netLoad = async function () {
   this.net_o_b = dataView[offset];
   
   //}}}
-	postMessage('A.C.A.S Load');
+	postMessage('OmniChess Load');
 }
 
 //}}}

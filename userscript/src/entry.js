@@ -26,7 +26,7 @@ import {
 const getBaseStyleModification = () => {};
 
 // Prevent tree-shaking of original unused functions to maintain complete parity
-if (typeof window !== 'undefined' && window.__acas_preserve) {
+if (typeof window !== 'undefined' && window.__omnichess_preserve) {
     console.log(
         setConfigValue,
         getElemCoordinatesFromLeftBottomPercentages,
