@@ -1553,16 +1553,6 @@ input[disabled] {
 #engine-floaty {
 	min-width: 50%;
     max-width: 90%;
-}
-#begging-floaty {
-    max-width: 350px;
-}
-#begging-floaty .floaty-body {
-	word-wrap: break-word;
-}
-#begging-floaty small {
-	padding: 30px;
-}
 .direct-ees-input {
 	text-transform: none !important;
 }

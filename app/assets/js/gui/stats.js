@@ -1,20 +1,7 @@
-import { beggingFloaty, userStatElements } from './elementDeclarations.js';
-
-function showBeggingFloaty(minutes) {
-    const hoursText = beggingFloaty?.querySelector('b');
-    if(!hoursText) return;
-
-    hoursText.innerText = Math.round(minutes / 60);
-
-    beggingFloaty.showModal();
-}
+import { userStatElements } from './elementDeclarations.js';
 
 function saveUserUsageStat(key, value) {
     localStorage.setItem(USER_USAGE_PREFIX + key, value);
-
-    if(key === MINUTES_USED_STORAGE_KEY && (value % 1440 === 0)) {
-        showBeggingFloaty(value);
-    }
 
     updateUserUsageStats(key, value);
 }

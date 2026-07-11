@@ -174,23 +174,6 @@
 			</div>
 		</div>
 
-		<dialog id="begging-floaty">
-			<div class="floaty-container">
-				<section class="floaty-header">
-					<div class="title">
-						<h1 data-translation-begging-title>Thank you!</h1>
-						<p data-translation-begging-subtitle>You seem to like OmniChess :)</p>
-					</div>
-				</section>
-				<section class="floaty-body">
-					<p data-translation-begging-text>Developing OmniChess takes a lot of time! Hopefully this work has been valuable to you, and you've enjoyed using it!</p>
-					<p><span data-translation-begging-text-2>You've used OmniChess for</span> <span><b>54.3</b></span> <span data-translation-begging-text-3>hours</span>. <span data-translation-begging-text-4>That's respectable. Would you be interested in donating? We support Monero,</span></p>
-					<a href="monero:85gtuipg7CgXgWLgnPyQUy3babkJXEhRRP3JtZfBWBhPR2TrJaNwSgKVQ9UkeVW7sFS33Dpgj2B5iajtyxcEbJNDC2SUdNY"><img alt="Donate using Monero" src="../assets/images/supportus.png"></a>
-					<small>monero:85gtuipg7CgXgWLgnPyQUy3babkJXEhRRP3JtZfBWBhPR2TrJaNwSgKVQ9UkeVW7sFS33Dpgj2B5iajtyxcEbJNDC2SUdNY</small>
-				</section>
-			</div>
-		</dialog>
-		
 		<!-- OmniChess SETTINGS CONTAINER-->
 		<div id="omnichess-settings-container">
 			<div class="highlight-indicator hidden"></div>
@@ -206,7 +189,7 @@
 					</div>
 				</div>
 				<div id="settings-control-panel">
-					<a target="_about" href="../usage/" class="control-panel-btn no-select omnichess-fancy-button" title="Open Documentation" data-icon="book"></a>
+					<a target="_about" href="../faq/" class="control-panel-btn no-select omnichess-fancy-button" title="Open Documentation" data-icon="book"></a>
 					<div id="toggle-pip-btn" class="control-panel-btn no-select omnichess-fancy-button" title="Toggle Floating Panel" data-icon="eye"></div>
 					<div id="import-settings-btn" class="control-panel-btn no-select omnichess-fancy-button" title="Import Settings" data-icon="import"></div>
 					<div id="export-settings-btn" class="control-panel-btn no-select omnichess-fancy-button" title="Export Settings" data-icon="export"></div>
@@ -232,7 +215,7 @@
 								<input type="checkbox" data-key="engineEnabled" data-default-value="true"><div class="checkbox-fill">✔</div></div>
 							</div>
 							<div class="custom-input"><div><div class="input-title">Chess Engine</div>
-								<a href="../usage/" target="_blank"><div class="input-subtitle">Read more here</div></a></div>
+								<a href="../faq/" target="_blank"><div class="input-subtitle">Read more here</div></a></div>
 
 								<div class="floaty-wrapper">
 									<button class="open-floaty-btn omnichess-fancy-button">⚙️</button>
@@ -299,13 +282,13 @@
 														<div class="dropdown-input-container">
 															<input disabled type="text" additional-type="dropdown" data-key="externalChessEngine" data-default-value="" placeholder="None"><div class="dropdown-icon"></div>
 															<div class="dropdown-list-container hidden" style="height: fit-content; max-height: 300px;"></div>
-															<p id="install-omnichess-server-text"><a href="/OmniChess/usage/#external" target="_blank"><span data-translation-external-engine-2>Install the OmniChess server</span></a> <span data-translation-external-engine-3>to use external engines</span></p>
+															<p id="install-omnichess-server-text"><a href="https://github.com/quantavil/OmniChess" target="_blank"><span data-translation-external-engine-2>Install the OmniChess server</span></a> <span data-translation-external-engine-3>to use external engines</span></p>
 														</div>
 													</div>
 													<p data-translation-experimental-warning>This feature is experimental, it might not work well!</p>
 												</div>
 
-												<a target="_blank" href="../usage/" data-translation-learn-more-here>Learn more about these features here.</a>
+												<a target="_blank" href="../faq/" data-translation-learn-more-here>Learn more about these features here.</a>
 											</section>
 										</div>
 									</dialog>
@@ -360,7 +343,7 @@
 													</div>
 												</div>
 
-												<a target="_blank" href="../usage/" data-translation-learn-more-here>Learn more about these features here.</a>
+												<a target="_blank" href="../faq/" data-translation-learn-more-here>Learn more about these features here.</a>
 											</section>
 										</div>
 									</dialog>
@@ -372,7 +355,7 @@
 								<input type="textfield" data-key="engineEnemyElo" data-default-value="1500" data-between="600-2600">
 							</div>
 							<div id="lc0-weight-dropdown" class="hidden dropdown-input custom-input"><div><div class="input-title">Lc0 Weights</div>
-								<a href="../usage/" target="_blank"><div class="input-subtitle">Read more here</div></a></div><div class="dropdown-input-container">
+								<a href="../faq/" target="_blank"><div class="input-subtitle">Read more here</div></a></div><div class="dropdown-input-container">
 								<input type="text" additional-type="dropdown" data-key="lc0Weight" data-default-value="maia-1100.pb" placeholder="1100 elo"><div class="dropdown-icon"></div>
 								<div class="dropdown-list-container">
 									<div class="dropdown-item" data-value="maia-1100.pb">1100 elo (Maia) 1.7MB</div>
@@ -398,8 +381,8 @@
 								<div class="input-subtitle">More nodes means more thinking of the move by the engine</div></div>
 								<input type="textfield" data-key="engineNodes" data-default-value="1" data-between="1-99999999">
 							</div>
-							<div id="chess-variant-dropdown" class="dropdown-input custom-input hidden"><div><div class="input-title">Chess Variant</div>
-								<a href="../usage/" target="_blank"><div class="input-subtitle">Read more here</div></a></div><div class="dropdown-input-container">
+							<div id="chess-variant-dropdown" class="hidden dropdown-input custom-input"><div><div class="input-title">Chess Variant</div>
+								<a href="../faq/" target="_blank"><div class="input-subtitle">Read more here</div></a></div><div class="dropdown-input-container">
 								<input disabled type="text" additional-type="dropdown" data-key="chessVariant" data-default-value="Chess" placeholder="Chess"><div class="dropdown-icon"></div>
 								<div class="dropdown-list-container"></div>
 							</div></div>
@@ -475,7 +458,7 @@
 													</div>
 												</div>
 
-												<a target="_blank" href="../usage/" data-translation-learn-more-here>Learn more about these features here.</a>
+												<a target="_blank" href="../faq/" data-translation-learn-more-here>Learn more about these features here.</a>
 											</section>
 										</div>
 									</dialog>
@@ -522,7 +505,7 @@
 
 												<p data-translation-experimental-warning>This feature is experimental, it might not work well!</p>
 
-												<a target="_blank" href="../usage/" data-translation-learn-more-here>Learn more about these features here.</a>
+												<a target="_blank" href="../faq/" data-translation-learn-more-here>Learn more about these features here.</a>
 											</section>
 										</div>
 									</dialog>
@@ -568,7 +551,7 @@
 													</div>
 												</div>
 
-												<a target="_blank" href="../usage/" data-translation-learn-more-here>Learn more about these features here.</a>
+												<a target="_blank" href="../faq/" data-translation-learn-more-here>Learn more about these features here.</a>
 											</section>
 										</div>
 									</dialog>

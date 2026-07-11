@@ -58,6 +58,7 @@ OmniChess/
 - **AutoMove Jitter & Path Presets:** Implemented dynamic click release delays (randomized 40ms to 110ms) and Bezier mouse path presets (fast-flicker, slow-steady, and tired-drag profiles) in the autoMove logic to enhance human simulation.
 - **Documentation & Credits:** Updated main and userscript READMEs to attribute credit to the original script (HKR/Psyyke's greasyfork) and detail our new enhancements (modular structure, local CommLink, adaptive depth, auto-move jitter, presets).
 - **Userscript Code Audit & Performance Overhaul:** Resolved all 20 code audit findings (including null click crashes, classList errors, unguarded wrappers, coordinates transposition, underpromotion clicking, and secure origin checks) and dramatically reduced CPU load by optimization of the FEN scanner DOM calls (from 17 scans to 1) and CommLink shared receiver polling.
+- **Brand Assets Revamp, Image Audit & Usage Page Removal:** Replaced deleted ACAS logo brand images with premium monochromatic dark-theme assets. Ran a codebase audit to identify and remove all unused assets. Removed 'extgui' (external server GUI) and 'support' (Monero donation modal) throughout the codebase. Deleted the entire `usage` folder along with its related assets (`example5.png`, `chart.png`, `render-example.png`) and redirected all documentation links to the FAQ page. Rerendered a simpler, minimal `mock.png` using the new `logo.png`.
 
 ## Blunders
 - None logged yet.

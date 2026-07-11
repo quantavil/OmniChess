@@ -64,8 +64,6 @@ export const dynamicSettingsContainer = document.querySelector('#dynamic-engine-
 export const dynamicSettingPanelElem = document.querySelector('#dynamic-setting-panel');
 export const dynamicEngineSettingNoResultText = document.querySelector('#des-no-result-text');
 
-export const beggingFloaty = document.querySelector('#begging-floaty');
-
 export const userStatElements = document.querySelectorAll('#user-stats-container .user-stat');
 
 export const autoMoveCheckbox = document.querySelector('input[data-key="autoMove"]');
