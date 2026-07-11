@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Usage / A.C.A.S</title>
+    <title>Usage / OmniChess</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
     <meta name="description" content="Learn how to use A.C.A.S: supported sites, floating panel, engines, variants, and rendering options for on‑board understanding.">
@@ -18,7 +18,7 @@
     <link rel="stylesheet" type="text/css" href="../assets/css/home.css">
     <script src="../app/assets/js/misc/icons.js" defer></script>
     <link rel="icon" type="image/x-icon" href="../favicon.ico">
-    <link rel="canonical" href="https://quantavil.github.io/A.C.A.S/usage">
+    <link rel="canonical" href="https://quantavil.github.io/OmniChess/usage">
     <meta property="og:type" content="website">
     <script type="text/javascript"src="../assets/js/tag-manager.js"></script>
     <script async="" type="text/javascript" src="https://www.googletagmanager.com/gtm.js?id=GTM-5499BQ4B"></script>
@@ -31,13 +31,13 @@
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5499BQ4B" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <main>
         <header>
-            <div><a href="../" class="acas-logo-main fancy-btn">A.C.A.S<span>V2</span></a></div>
+            <div><a href="../" class="acas-logo-main fancy-btn">OmniChess<span>V2</span></a></div>
             <div>
                 <a href="../install/" aria-label="Install A.C.A.S" class="fancy-btn"><span data-icon="download"></span>Install</a>
                 <a href="../usage/" aria-label="How to use A.C.A.S" class="fancy-btn"><span data-icon="journals"></span>Usage</a>
                 <a href="../troubleshoot/" aria-label="Fixing A.C.A.S" class="fancy-btn"><span data-icon="tools"></span>Troubleshoot</a>
                 <a href="../faq/" aria-label="Frequently Asked Questions" class="fancy-btn"><span data-icon="chat-square-quote"></span>FAQ</a>
-                <a href="https://github.com/quantavil/A.C.A.S" target="_blank" class="github-corner fancy-btn" aria-label="View source on Github"><span data-icon="github"></span></a>
+                <a href="https://github.com/quantavil/OmniChess" target="_blank" class="github-corner fancy-btn" aria-label="View source on Github"><span data-icon="github"></span></a>
             </div>
         </header>
         <div class="content">
@@ -50,7 +50,7 @@
             <article class="markdown-section-sub markdown-section" id="main">
                 <section>
                     <h1 id="usage-📖">Usage 📖</h1>
-                    <p>Using A.C.A.S is easy! Once you have the userscript installed, just keep the <a target="_blank" href="../app">GUI</a> open while you're playing on a chess site. By default, the moves it suggests will show up directly on the board you're playing on.</p>
+                    <p>Using OmniChess is easy! Once you have the userscript installed, just keep the <a target="_blank" href="../app">GUI</a> open while you're playing on a chess site. By default, the moves it suggests will show up directly on the board you're playing on.</p>
                     <p class="tip">Press Ctrl+D (Cmd+D for Mac) to bookmark this page.</p>
                     <div id="lottie-animation">
                         <svg class="loader-svg" viewBox="0 0 100 100" fill="none" stroke="currentColor">
@@ -120,9 +120,9 @@
 
                     <h3>Getting started with the server</h3>
                     <ol>
-                        <li><p class="tweaking" style="width: fit-content;"><a target="_blank" href="https://github.com/quantavil/A.C.A.S/releases">Download Calculation Server</a></p><small>(Or compile it yourself, then open it)</small></li>
+                        <li><p class="tweaking" style="width: fit-content;"><a target="_blank" href="https://github.com/quantavil/OmniChess/releases">Download Calculation Server</a></p><small>(Or compile it yourself, then open it)</small></li>
                         <li><p>Click "Add Engine Binary" button to add your chess engine.</p><small>(Windows users should look for .exe)</small></li>
-                        <li><p>Enable the <a target="_blank" href="../app?shl=useExternalChessEngine">External Chess Engine</a> on the GUI.</p><small>(Otherwise A.C.A.S will use a built-in engine)</small></li>
+                        <li><p>Enable the <a target="_blank" href="../app?shl=useExternalChessEngine">External Chess Engine</a> on the GUI.</p><small>(Otherwise OmniChess will use a built-in engine)</small></li>
                         <li><p>You will see your engines as list on the GUI. Click to select the engine you want to use.</p><small>(Remember to add engines using step 2 to be able to see them)</small></li>
                     </ol>
 
@@ -135,7 +135,7 @@
 
                     <h3>Risks of hosting a server</h3>
 
-                    <p>A.C.A.S supports engines running locally on your machine. It does this by hosting a WebSocket server on localhost.
+                    <p>OmniChess supports engines running locally on your machine. It does this by hosting a WebSocket server on localhost.
                     Please understand that running a server is never totally risk-free. While the server is being developed with your safety in mind, it might have vulnerabilities.
                     Never expose the server to the public internet. Thank you for your understanding.</p>
 
@@ -173,9 +173,9 @@
 
                     <h3 id="⚙️-floating-panel">⚙️ Floating Panel</h3>
                     <p>The <a target="_blank" href="../app?shl=pip">Floating Panel</a> setting creates a small "<em>Picture-in-Picture</em>" view you can resize to be even smaller that will stay on top of every window. It contains important information about the current match.</p>
-                    <p class="tip">This setting is very important to know because it stops A.C.A.S from freezing, and makes the engine run faster!</p>
-                    <p>For Chromium based browsers, such as Chrome, disabling the floating panel creates a "mediaSession" which plays silent audio in loop to keep A.C.A.S active, even when not viewing the tab. Please keep in mind that you need to interact with the A.C.A.S GUI everytime you open it, so that this feature activates.</p>
-                    <p>If you don't want to use the floating panel, you can also create two browser windows (tabs) next to each other, so that the A.C.A.S tab is visible, even if just a little bit, which also stops the A.C.A.S tab from freezing.</p>
+                    <p class="tip">This setting is very important to know because it stops OmniChess from freezing, and makes the engine run faster!</p>
+                    <p>For Chromium based browsers, such as Chrome, disabling the floating panel creates a "mediaSession" which plays silent audio in loop to keep OmniChess active, even when not viewing the tab. Please keep in mind that you need to interact with the OmniChess GUI everytime you open it, so that this feature activates.</p>
+                    <p>If you don't want to use the floating panel, you can also create two browser windows (tabs) next to each other, so that the OmniChess tab is visible, even if just a little bit, which also stops the OmniChess tab from freezing.</p>
                     <h3 id="⚙️-chess-engine">⚙️ Chess Engine</h3>
                     <p>The <a target="_blank" href="../app?shl=chessEngine">Chess Engine</a> setting changes the engine which is used to calculate moves. We recommend using <strong>Stockfish 17 Lite</strong> as its the fastest and basically strongest engine, although it does not play like a human and has a hard time playing badly. If you want to play chess variants, use <strong>Fairy Stockfish 14</strong>.</p>
                     <ul>
@@ -186,11 +186,11 @@
                         <li>Lozza 9 (Quite strong engine-like gameplay)</li>
                         <li>External engine (You choose, can be extremely realistic)</li>
                     </ul>
-                    <p class="tip">A.C.A.S takes information from the engine's results to give you insights into the match. Some engines offer less of extra information which cannot then be analyzed. Use Stockfish for best results.</p>
+                    <p class="tip">OmniChess takes information from the engine's results to give you insights into the match. Some engines offer less of extra information which cannot then be analyzed. Use Stockfish for best results.</p>
                     <p>None of these engines will play like a human for you. Do not think you can get away playing 2500 ELO matches as a 1000 ELO player with an engine. We do not want to hear any complaining on why you got banned when you broke our ToS.</p>
 
                     <h3 id="⚙️-chess-variant">⚙️ Chess Variant</h3>
-                    <p class="tip">Most users do not play chess variants, <strong>you most likely do not need to change this nor the <a target="_blank" href="../app?shl=useChess960">Chess 960</a></strong>. If you happen to play a variant, A.C.A.S should automatically detect the chess variant you're playing if its supported.</p>
+                    <p class="tip">Most users do not play chess variants, <strong>you most likely do not need to change this nor the <a target="_blank" href="../app?shl=useChess960">Chess 960</a></strong>. If you happen to play a variant, OmniChess should automatically detect the chess variant you're playing if its supported.</p>
                     <p>The <a target="_blank" href="../app?shl=chessVariant">Chess Variant</a> setting changes the type of chess Fairy Stockfish plays. Other engines don’t really support it, but most do support <a target="_blank" href="../app?shl=useChess960">Chess 960</a>, which is a variant of chess in which the piece starting positions are randomized. If you happen to play variants, you need to use Fairy Stockfish <a target="_blank" href="../app?shl=chessEngine">Chess Engine</a>.</p>
                     
                     <h3 id="⚙️-engine-elo">⚙️ Engine Elo</h3>
@@ -199,17 +199,17 @@
                     <img alt="Chart displaying the ELO depending on the engine search depth and skill level." height="441" src="../assets/images/chart.png">
 
                     <h4>⚙️ Advanced Elo</h4>
-                    <p>The above chart shows a couple variables A.C.A.S changes for you automatically when you use the basic <a target="_blank" href="../app?shl=engineElo">Engine Elo</a> setting.
+                    <p>The above chart shows a couple variables OmniChess changes for you automatically when you use the basic <a target="_blank" href="../app?shl=engineElo">Engine Elo</a> setting.
                     Some users don't like it, so clicking the settings button next to the Engine ELO opens up "Advanced Elo" settings which overrides basic ELO settings. These are loaded dynamically when your engine starts, so you might not see any settings there while you have no instances running. It might also be buggy so refresh the site.
                     </p>
 
-                    <p>Note that not every "Advanced Elo" setting does something. For example "Ponder" option won't most likely do anything as it's not implemented to A.C.A.S. If you're running a built-in engine, it's limited by your browser and might not be able to take usage of any more cores, memory, external files and so on. The setting is meant for advanced users who know what they are doing.</p>
+                    <p>Note that not every "Advanced Elo" setting does something. For example "Ponder" option won't most likely do anything as it's not implemented to OmniChess. If you're running a built-in engine, it's limited by your browser and might not be able to take usage of any more cores, memory, external files and so on. The setting is meant for advanced users who know what they are doing.</p>
 
                     <p>Feel free to play around and try different things. If you notice something is not working, please understand that the dynamic nature of these settings causes bugs and not everything can be tested beforehand. If you're using a custom engine and encounter them, please feel free to report them to GitHub.</p>
             
                     <h3 id="⚙️-weights">⚙️ Weights</h3>
                     <p>The <a target="_blank" href="../app?shl=lc0Weight">Lc0 Weights</a> setting determines how the Lc0 engine plays. The weight controls the engine's playing style, influencing the decisions it makes while playing. <strong>Maia weights</strong> have the ELO they're roughly playing at marked on them. The ELO and playing style of other weights is not known, but most of them are quite weak.</p>
-                    <p class="tip">Most weights A.C.A.S has, Maia specifically, are designed to only use 1 search node. It's fine that it goes just to depth 1. Using more than 1 search node might cause weird behavior.</p>
+                    <p class="tip">Most weights OmniChess has, Maia specifically, are designed to only use 1 search node. It's fine that it goes just to depth 1. Using more than 1 search node might cause weird behavior.</p>
                     
                     <h3 id="⚙️-moves-on-external-site">⚙️ Moves On External Site</h3>
                     <p>The <a target="_blank" href="../app?shl=displayMovesOnExternalSite">Moves On External Site</a> setting adds details about the move (<em>such has the arrow</em>) to the external site, which could be Chess.com for example, directly on the board you're playing on.</p>

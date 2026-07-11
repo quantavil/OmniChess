@@ -1,10 +1,10 @@
-# Project: A.C.A.S (Advanced Chess Assistance System)
+# Project: OmniChess
 
 ## Overview
-A.C.A.S is an open-source, multi-engine, multi-variant chess assistance system. It operates as a web-based UI/GUI communicating with the OmniChess userscript (located locally at `/home/quantavil/Documents/Project/userscript/ACAS-bot/` and online at [quantavil/userscript](https://github.com/quantavil/userscript/tree/main/ACAS-bot)) that runs in separate tabs of chess websites (e.g., chess.com, lichess.org) via CommLink (cross-window postMessage communication). It supports built-in WASM chess engines (Stockfish, Fairy Stockfish, Lc0, Maia) and external UCI engines via a Node.js/Electron localhost server (`appServer`).
+OmniChess is an open-source, multi-engine, multi-variant chess assistance system. It operates as a web-based UI/GUI communicating with a local userscript (located under `./userscript/`) that runs in separate tabs of chess websites (e.g., chess.com, lichess.org) via CommLink (cross-window postMessage communication). It supports built-in WASM chess engines (Stockfish, Fairy Stockfish, Lc0, Maia) and external UCI engines via a Node.js/Electron localhost server (`appServer`).
 
 ## Structure
-A.C.A.S/
+OmniChess/
 ├── index.html             # Landing page / redirection to the app
 ├── app/                   # Main GUI application code
 │   ├── index.html         # Main GUI frontend

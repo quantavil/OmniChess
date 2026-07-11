@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Development / A.C.A.S</title>
+    <title>Development / OmniChess</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
     <meta name="description" content="Developer docs for A.C.A.S: local setup, userscript workflow, architecture, and contribution notes.">
@@ -18,7 +18,7 @@
     <link rel="stylesheet" type="text/css" href="../assets/css/home.css">
     <script src="../app/assets/js/misc/icons.js" defer></script>
     <link rel="icon" type="image/x-icon" href="../favicon.ico">
-    <link rel="canonical" href="https://quantavil.github.io/A.C.A.S/development">
+    <link rel="canonical" href="https://quantavil.github.io/OmniChess/development">
     <meta property="og:type" content="website">
     <script type="text/javascript"src="../assets/js/tag-manager.js"></script>
     <script async="" type="text/javascript" src="https://www.googletagmanager.com/gtm.js?id=GTM-5499BQ4B"></script>
@@ -31,13 +31,13 @@
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5499BQ4B" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <main>
         <header>
-            <div><a href="../" class="acas-logo-main fancy-btn">A.C.A.S<span>V2</span></a></div>
+            <div><a href="../" class="acas-logo-main fancy-btn">OmniChess<span>V2</span></a></div>
             <div>
                 <a href="../install/" aria-label="Install A.C.A.S" class="fancy-btn"><span data-icon="download"></span>Install</a>
                 <a href="../usage/" aria-label="How to use A.C.A.S" class="fancy-btn"><span data-icon="journals"></span>Usage</a>
                 <a href="../troubleshoot/" aria-label="Fixing A.C.A.S" class="fancy-btn"><span data-icon="tools"></span>Troubleshoot</a>
                 <a href="../faq/" aria-label="Frequently Asked Questions" class="fancy-btn"><span data-icon="chat-square-quote"></span>FAQ</a>
-                <a href="https://github.com/quantavil/A.C.A.S" target="_blank" class="github-corner fancy-btn" aria-label="View source on Github"><span data-icon="github"></span></a>
+                <a href="https://github.com/quantavil/OmniChess" target="_blank" class="github-corner fancy-btn" aria-label="View source on Github"><span data-icon="github"></span></a>
             </div>
         </header>
         <div class="content">
@@ -56,23 +56,23 @@
                         </blockquote>
                     </section>
                     <section>
-                        <h2 id="acas-gui">A.C.A.S GUI</h2>
+                        <h2 id="acas-gui">OmniChess GUI</h2>
                         <h3 id="hosting-on-localhost">Hosting on localhost</h3>
                         <ol>
-                            <li>Install the A.C.A.S userscript.</li>
+                            <li>Install the OmniChess userscript.</li>
                             <li>Select a webserver of your choosing, e.g. <a href="https://www.uwamp.com/en/" target="_blank" rel="noopener">UwAmp</a>.</li>
-                            <li>Create a folder named <code>A.C.A.S</code> to the root folder of your webserver. (e.g. <code>www/A.C.A.S</code>)</li>
+                            <li>Create a folder named <code>OmniChess</code> to the root folder of your webserver. (e.g. <code>www/OmniChess</code>)</li>
                             <li>Clone the repository and put the files inside the folder you just created.</li>
-                            <li>You should now see A.C.A.S running on <code>http://localhost/A.C.A.S/</code>.</li>
-                            <li>Make sure the A.C.A.S userscript is on and you should be good to go!</li>
+                            <li>You should now see OmniChess running on <code>http://localhost/OmniChess/</code>.</li>
+                            <li>Make sure the OmniChess userscript is on and you should be good to go!</li>
                         </ol>
-                        <p class="tip">Make sure there are no additional folders which would make the URL like <code>http://localhost/A.C.A.S/A.C.A.S/</code>.</p>
+                        <p class="tip">Make sure there are no additional folders which would make the URL like <code>http://localhost/OmniChess/OmniChess/</code>.</p>
                         <blockquote>
                             <p>You can use <a href="https://desktop.github.com/" target="_blank" rel="noopener">GitHub Desktop</a> to make Git actions such as cloning easy.</p>
                         </blockquote>
                     </section>
                     <section>
-                        <h2 id="acas-userscript">A.C.A.S Userscript</h2>
+                        <h2 id="acas-userscript">OmniChess Userscript</h2>
                         <p>Developing the userscript is easy, simply develop it as you'd any other userscripts.</p>
                         <p class="tip">Browsers might cache userscripts after you've refreshed the site enough times. If you notice your userscript being cached, disable the userscript, refresh the page, then enable the userscript and refresh the page again.</p>
                         <h2 id="pull-requests">Pull Requests</h2>
