@@ -1,46 +1,102 @@
-<img width="2000" height="500" alt="largehero" src="assets/images/largehero.png" />
-
-# A.C.A.S (Advanced Chess Assistance System)
+# OmniChess
 
 > [!WARNING]
-> A.C.A.S is currently in development. Expect bugs, especially on variants.
+> OmniChess is currently in development. Expect bugs, especially on variant games.
 
 > [!NOTE]
-> The OmniChess userscript development repository is located at [quantavil/userscript](https://github.com/quantavil/userscript/tree/main/ACAS-bot). Please refer to it for the userscript source code and build instructions. This project is a modularized, optimized, and heavily enhanced fork of the original [A.C.A.S by HKR/Psyyke](https://greasyfork.org/en/scripts/459137-1-chess-assistant-a-c-a-s-advanced-chess-assistance-system).
+> The OmniChess userscript source code and build instructions are located in the [userscript/](file:///home/quantavil/Documents/Project/OmniChess/userscript) directory of this repository. This project is a modularized, optimized, and heavily enhanced fork of the original [A.C.A.S system by HKR/Psyyke](https://greasyfork.org/en/scripts/459137-1-chess-assistant-a-c-a-s-advanced-chess-assistance-system).
 
-A.C.A.S (Advanced Chess Assistance System) is an open-source chess assistant (**not a chess cheat**), designed to help you make better moves using a chess engine. Just install the OmniChess userscript, open the A.C.A.S GUI, and you're ready to go. No downloads necessary!
+OmniChess is an open-source, multi-engine, multi-variant chess assistance system. It provides real-time strategic overlays (threat heatmaps, move markers, multiple suggestions) directly on chess platforms via a userscript communicating with a separate web-based GUI. 
 
-![Screenshot of A.C.A.S](assets/images/mock.png)
+Because calculations run in a separate tab, the target website cannot detect or block the chess engine.
 
-> [!CAUTION]
-> The use of A.C.A.S may violate the rules and lead to disqualification or banning from tournaments and online platforms. A.C.A.S is meant to be used as a real-time learning tool. Remember, struggling at chess doesn't mean you're unintelligent... it's not an IQ test, just a board game. And even IQ tests only measure certain aspects of your abilities. Use A.C.A.S fairly, be kind to other players.
+---
 
-| [▶️ Open A.C.A.S](https://quantavil.github.io/A.C.A.S/) | [⬇️ Install OmniChess (GreasyFork)](https://greasyfork.org/en/scripts/583158)  | [💬 Discuss With Community](https://hakorr.github.io/Userscripts/community/invite)
-|-------|-------|-------|
+## 🌟 Key Features
 
-* Many built in WebAssembly engines (faster than JS)
-* External engines (via an installable localhost server)
-* Supports top chess sites (chess.com, lichess.org, etc.)
-* Multiple suggestions, arrows, variants, fonts
-* Multi-engine support, each with own settings
-* Ability to modify any engine UCI options (e.g. ELO, depth, multiPV, skill)
-* Visual board metrics (safe, contested, enemy squares, captured pieces)
-* Move feedback and opponent predictions
-* Render directly on external boards (or stay hidden via ghost mode)
-* Audio TTS suggestions with adjustable speed
-* Floating panel for stability and faster calculation
-* Adaptive thinking depth (thinks deeper when losing, shallower when winning)
-* Humanized move methods (Click, Drag, or Natural Hybrid that alternates click/drag styles, utilizes curved Bezier trajectories with speed presets like fast-flicker/slow-steady/tired-drag, and applies randomized click release delay jitter)
-* Modular userscript code structure built on Bun, with built-in CommLink eliminating external remote library dependencies
-* Customizable themes (colors, fonts, textures)
-* Chess variants supported (chess960, Fairy Stockfish variants like Crazyhouse, Horde, and Atomic - including full drop move indicators and overlay rendering for Crazyhouse)
-* Picture-in-Picture (PiP) video stream overlay, dynamically displaying the current active engine name on the header
-* Translated into 30+ languages
-* No anti-features on userscript
+* **WASM Chess Engines:** Run high-performance WebAssembly engines (Stockfish 17/18, Fairy Stockfish, Lc0, Maia) directly in your browser.
+* **Native Engine Support:** Connect to local UCI engines on your desktop via an installable localhost server (`appServer`).
+* **Sleek, Unobtrusive Interface:** Seamless visual overlays rendered directly on supported board elements, or stay hidden using Ghost Mode.
+* **Humanized Automation:** Human-like move playback featuring quadratic Bezier drag paths, randomized click delays (40ms–110ms), and custom speed profiles.
+* **Adaptive Search Depth:** Dynamically scales thinking depth based on active board evaluation (deeper calculations during complex turns, faster responses for clear wins).
+* **Multi-Variant Capabilities:** Full support for standard chess, Chess960, and Fairy variants (Crazyhouse, Horde, Atomic) with drop move overlay rendering.
+* **Picture-in-Picture Calculations:** Stream calculation overlays inline or using browser Picture-in-Picture windows.
+* **No Local Downloads Required:** Run the entire system within your web browser.
+
+---
+
+## 🚀 How It Works
+
+OmniChess uses a distributed, client-backend architecture split into the **Userscript Client** and the **Engine GUI**.
+
+```mermaid
+flowchart LR
+    subgraph Browser Tab 1: Chess Site [e.g., Chess.com / Lichess]
+        A[Chess Board DOM] <-->|DOM MutationObserver| B[OmniChess Userscript]
+        B -->|UniversalBoardDrawer| C[Overlay Graphics / SVGs]
+    end
+
+    subgraph Browser Tab 2: OmniChess GUI [quantavil.github.io/OmniChess]
+        F[OmniChess Orchestrator] <-->|Worker / HTTP| G[Chess Engine \nStockfish / Lc0]
+    end
+
+    B <-->|Cross-Origin IPC via GM Storage| F
+```
+
+1. **OmniChess Userscript:** Scrapes the chessboard DOM using site-specific adapters, calculates the FEN, and triggers overlays using the UniversalBoardDrawer.
+2. **Engine GUI:** Operates in an isolated tab, calculating suggestions without impacting performance or triggering anti-cheat hooks on the chess site.
+3. **CommLink Bridge:** Exchanges coordinate lists, evaluations, and configuration data securely via cross-origin Greasemonkey storage APIs.
+
+---
+
+## 🛠️ Installation and Setup
+
+1. **Install a Userscript Manager:**
+   Add [Violentmonkey](https://violentmonkey.github.io/) or [Tampermonkey](https://www.tampermonkey.net/) to your web browser.
+   * *Note:* If using Tampermonkey v5.3+ on Chromium, you must enable Developer Mode in your browser settings.
+2. **Install the Userscript:**
+   Install the userscript from [GreasyFork](https://greasyfork.org/en/scripts/583158).
+3. **Launch the Engine GUI:**
+   Open the hosted [OmniChess GUI](https://quantavil.github.io/OmniChess/app/) in your browser.
+4. **Start Playing:**
+   Navigate to any supported chess platform (Chess.com, Lichess, PlayStrategy, PyChess, GameKnot, etc.) in a separate browser window, and start playing!
+
+---
+
+## 📂 Repository Structure
+
+* **`app/`**: The core OmniChess GUI frontend application dashboard.
+* **`appServer/`**: Desktop integration server (Node.js/Electron) for connecting native UCI engines.
+* **`userscript/`**: The frontend client code, built using Bun.
+* **`assets/`**: Static visuals, CSS styling tokens, and local WebAssembly engine binaries.
+* **`development/`**, **`troubleshoot/`**, **`faq/`**: Guides, documentation pages, and troubleshooting assets.
+
+---
+
+## 📦 Developer Guides
+
+### Building the Userscript
+Prerequisites: Make sure you have [Bun](https://bun.sh/) installed.
+```bash
+cd userscript
+bun install
+bun run build
+```
+This outputs the compiled single-file userscript to `userscript/dist/main.js`.
+
+### Running Tests
+Verify coordinate mapping calculations:
+```bash
+cd userscript
+bun test
+```
+
+---
+
+## ⚙️ Used Libraries
 
 <details>
-  
-<summary>Used Libraries ❤️</summary>
+<summary>View Core Open Source Dependencies ❤️</summary>
 
 | Library | Description | License |
 |--------|------------|---------|
@@ -65,17 +121,8 @@ A.C.A.S (Advanced Chess Assistance System) is an open-source chess assistant (**
 | [ws](https://github.com/websockets/ws) | WebSocket server library | MIT |
 | [Electron](https://www.electronjs.org/) | Desktop app framework | MIT |
 
-There might be more, please let us know if anything is missing, thank you!
-
 </details>
 
-![281683276-af4af26b-d5e9-4502-ac6a-8921d34c3cfa](https://github.com/user-attachments/assets/3966322b-ba25-4962-b667-d5a5c36e6318)
+---
 
-| A.C.A.S (Tab #1)    | Chess Website (Tab #2)  |
-|----------------------|----------------------|
-| ![A.C.A.S Tab](https://github.com/user-attachments/assets/4d5d80ac-3a1a-4529-889d-64403dd2adbe) | ![Lichess.org Tab](https://github.com/user-attachments/assets/97cb9650-19d5-41dc-bfbf-f071ee39eb92) |
-| The engine runs on a completely different tab than the chess game page, completely isolated from it. The site cannot block the usage of A.C.A.S. | A.C.A.S sends move data via [CommLink](https://github.com/AugmentedWeb/CommLink) and the userscript displays the data on the board using [UniversalBoardDrawer](https://github.com/Hakorr/UniversalBoardDrawer). (*If "Display Moves On External Site" setting is activated!*) |
-
-If you're having issues, please visit the [troubleshoot](https://quantavil.github.io/A.C.A.S/troubleshoot/) page. Developers can visit the [development](https://quantavil.github.io/A.C.A.S/development/) page. Thank you!
-
-<img width="1903" height="1676" alt="acas" src="https://github.com/user-attachments/assets/cbb510f0-5083-4a6b-9bd5-a7b91d390e68" />
+For bugs, feedback, or support, please open an issue in this repository.
