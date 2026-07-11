@@ -1,11 +1,5 @@
 # OmniChess
 
-> [!WARNING]
-> OmniChess is currently in development. Expect bugs, especially on variant games.
-
-> [!NOTE]
-> The OmniChess userscript source code and build instructions are located in the [userscript/](file:///home/quantavil/Documents/Project/OmniChess/userscript) directory of this repository. This project is a modularized, optimized, and heavily enhanced fork of the original [OmniChess system by HKR/Psyyke](https://greasyfork.org/en/scripts/459137-1-chess-assistant-a-c-a-s-advanced-chess-assistance-system).
-
 OmniChess is an open-source, multi-engine, multi-variant chess assistance system. It provides real-time strategic overlays (threat heatmaps, move markers, multiple suggestions) directly on chess platforms via a userscript communicating with a separate web-based GUI. 
 
 Because calculations run in a separate tab, the target website cannot detect or block the chess engine.
@@ -14,7 +8,7 @@ Because calculations run in a separate tab, the target website cannot detect or 
 
 ## 🌟 Key Features
 
-* **WASM Chess Engines:** Run high-performance WebAssembly engines (Stockfish 17/18, Fairy Stockfish, Lc0, Maia) directly in your browser.
+* **WASM Chess Engines:** Run high-performance WebAssembly engines (Stockfish 17/18, Fairy Stockfish, Lc0, Maia, Fusion α, Lozza) directly in your browser.
 * **Native Engine Support:** Connect to local UCI engines on your desktop via an installable localhost server (`appServer`).
 * **Sleek, Unobtrusive Interface:** Seamless visual overlays rendered directly on supported board elements, or stay hidden using Ghost Mode.
 * **Humanized Automation:** Human-like move playback featuring quadratic Bezier drag paths, randomized click delays (40ms–110ms), and custom speed profiles.
@@ -37,7 +31,7 @@ flowchart LR
     end
 
     subgraph Browser Tab 2: OmniChess GUI [quantavil.github.io/OmniChess]
-        F[OmniChess Orchestrator] <-->|Worker / HTTP| G[Chess Engine \nStockfish / Lc0]
+        F[OmniChess Orchestrator] <-->|Worker / HTTP| G[Chess Engine \nStockfish / Lc0 / Fusion / Lozza]
     end
 
     B <-->|Cross-Origin IPC via GM Storage| F
@@ -92,6 +86,10 @@ bun test
 ```
 
 ---
+> [!NOTE]
+> The OmniChess userscript source code and build instructions are located in the [userscript/](file:///home/quantavil/Documents/Project/OmniChess/userscript) directory of this repository. This project is a modularized, optimized, and heavily enhanced fork of the original [ACAS by HKR/Psyyke](https://greasyfork.org/en/scripts/459137-1-chess-assistant-a-c-a-s-advanced-chess-assistance-system).
+
+---
 
 ## ⚙️ Used Libraries
 
@@ -105,16 +103,15 @@ bun test
 | [ZeroFish](https://github.com/schlawg/zerofish) | WASM port of Lc0 + Stockfish | GPL-3.0 |
 | [Maia-Chess](https://github.com/CSSLab/maia-chess) | Human-like NN weights | GPL-3.0 |
 | [Lozza](https://github.com/op12no2/lozza) | Additional chess engine | MIT |
+| [Fusion](https://github.com/quantavil/OmniChess) | Custom search/neural hybrid engine | GPL-3.0 |
 | [COI-Serviceworker](https://github.com/gzuidhof/coi-serviceworker) | Enables WASM on GitHub Pages | MIT |
 | [ChessgroundX](https://github.com/gbtami/chessgroundx) | Chessboard UI (modified) | GPL-3.0 |
 | [FileSaver](http://purl.eligrey.com/github/FileSaver.js) | Save config files | MIT |
-| [chess.js](https://github.com/jhlywa/chess.js) | Game logic | BSD-2-Clause |
 | [onnxruntime-web](https://github.com/Microsoft/onnxruntime) | Run ML models in browser | MIT |
 | [Klaro!](https://github.com/klaro-org/klaro-js) | Cookie consent manager | BSD 3-Clause |
 | [SnapDOM](https://github.com/zumerlab/snapdom) | DOM → image screenshots | MIT |
 | [UniversalBoardDrawer](https://github.com/Hakorr/UniversalBoardDrawer) | Draw arrows on boards | GPL-3.0 |
 | [CommLink](https://github.com/AugmentedWeb/CommLink) | Cross-window communication | GPL-3.0 |
-| [Bootstrap Icons](https://getbootstrap.com/) | Icon set (loaded locally/offline) | MIT |
 | [Mona Sans](https://github.com/github/mona-sans) | Font (GitHub) | SIL Open Font License |
 | [Rubik](https://fonts.google.com/specimen/Rubik) | Sans-serif font | SIL Open Font License |
 | [IBM Plex Sans](https://github.com/IBM/plex) | IBM typeface | SIL Open Font License |

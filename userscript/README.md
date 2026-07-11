@@ -4,9 +4,6 @@ OmniChess is a modular, high-performance chess assistance userscript that provid
 
 ---
 
-## ❤️ Credits
-This project is a modularized, optimized, and heavily enhanced fork of the original [OmniChess Userscript by HKR/Psyyke](https://greasyfork.org/en/scripts/459137-1-chess-assistant-a-c-a-s-advanced-chess-assistance-system).
-
 ## 🌟 Key Enhancements & Changes
 Unlike the original monolithic userscript, our fork introduces several key structural and functional improvements:
 
@@ -115,3 +112,6 @@ Analyze circular dependencies and check import safety boundaries:
 ```bash
 bun run lint:imports
 ```
+
+## ❤️ Credits
+This project is a modularized, optimized, and heavily enhanced fork of the original [ACAS Userscript by HKR/Psyyke](https://greasyfork.org/en/scripts/459137-1-chess-assistant-a-c-a-s-advanced-chess-assistance-system).

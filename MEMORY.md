@@ -36,6 +36,7 @@ OmniChess/
 - Do not run calculations in the main userscript thread to prevent page lag and cheat-detection triggers on chess websites.
 
 ## Insights
+- **README & Engines Update:** Removed unused dependencies (chess.js, Bootstrap Icons) from the README dependencies summary table and updated the documentation engine list to accurately reflect all available browser WASM engines including Lozza and Fusion α.
 - **Userscript Renaming & Version Bump:** Renamed the userscript from OmniChess-bot to OmniChess and bumped the version to 1.0.0, keeping internal database keys and communication APIs intact for compatibility.
 - **Audit & Implementation Findings:** Performed a codebase audit and implemented design realignments:
   - Deleted Stockfish 16 binary assets (`sf16-7.js`/`sf16-7.wasm`/`16-0-worker.js`) to remove bloat, leaving SF 17 and 18 options.
