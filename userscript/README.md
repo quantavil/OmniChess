@@ -1,4 +1,8 @@
-# OmniChess
+# <p align="center"><img src="../assets/images/logo.png" width="120" alt="OmniChess Logo"><br>OmniChess Userscript</p>
+
+<p align="center">
+  <img src="../assets/images/showcase-overlay.png" width="550" alt="OmniChess Userscript Overlay">
+</p>
 
 OmniChess is a modular, high-performance chess assistance userscript that provides real-time strategy visualization, move analysis, and automated move-playing capabilities. It overlays assistance directly on major chess platforms (such as Chess.com and Lichess) and interacts with a centralized engine backend.
 

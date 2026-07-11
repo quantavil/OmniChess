@@ -1,4 +1,8 @@
-# OmniChess
+# <p align="center"><img src="assets/images/logo.png" width="140" alt="OmniChess Logo"><br>OmniChess</p>
+
+<p align="center">
+  <img src="assets/images/social-preview.png" width="700" alt="OmniChess Interface Showcase">
+</p>
 
 OmniChess is an open-source, multi-engine, multi-variant chess assistance system. It provides real-time strategic overlays (threat heatmaps, move markers, multiple suggestions) directly on chess platforms via a userscript communicating with a separate web-based GUI. 
 
@@ -16,6 +20,14 @@ Because calculations run in a separate tab, the target website cannot detect or 
 * **Multi-Variant Capabilities:** Full support for standard chess, Chess960, and Fairy variants (Crazyhouse, Horde, Atomic) with drop move overlay rendering.
 * **Picture-in-Picture Calculations:** Stream calculation overlays inline or using browser Picture-in-Picture windows.
 * **No Local Downloads Required:** Run the entire system within your web browser.
+
+---
+
+## 📸 Showcase
+
+| Real-Time Board Overlays | Settings Control Center |
+|:---:|:---:|
+| <img src="assets/images/showcase-overlay.png" width="400" alt="Board Overlays"> | <img src="assets/images/showcase-settings.png" width="400" alt="Settings Customization"> |
 
 ---
 
