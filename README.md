@@ -6,16 +6,16 @@
 > A.C.A.S is currently in development. Expect bugs, especially on variants.
 
 > [!NOTE]
-> The userscript development repository is located at [quantavil/userscript](https://github.com/quantavil/userscript/tree/main/ACAS-bot). Please refer to it for the userscript source code and build instructions. This project is a modularized, optimized, and heavily enhanced fork of the original [A.C.A.S by HKR/Psyyke](https://greasyfork.org/en/scripts/459137-1-chess-assistant-a-c-a-s-advanced-chess-assistance-system).
+> The OmniChess userscript development repository is located at [quantavil/userscript](https://github.com/quantavil/userscript/tree/main/ACAS-bot). Please refer to it for the userscript source code and build instructions. This project is a modularized, optimized, and heavily enhanced fork of the original [A.C.A.S by HKR/Psyyke](https://greasyfork.org/en/scripts/459137-1-chess-assistant-a-c-a-s-advanced-chess-assistance-system).
 
-A.C.A.S (Advanced Chess Assistance System) is an open-source chess assistant (**not a chess cheat**), designed to help you make better moves using a chess engine. Just install the userscript, open the A.C.A.S GUI, and you're ready to go. No downloads necessary!
+A.C.A.S (Advanced Chess Assistance System) is an open-source chess assistant (**not a chess cheat**), designed to help you make better moves using a chess engine. Just install the OmniChess userscript, open the A.C.A.S GUI, and you're ready to go. No downloads necessary!
 
 ![Screenshot of A.C.A.S](assets/images/mock.png)
 
 > [!CAUTION]
 > The use of A.C.A.S may violate the rules and lead to disqualification or banning from tournaments and online platforms. A.C.A.S is meant to be used as a real-time learning tool. Remember, struggling at chess doesn't mean you're unintelligent... it's not an IQ test, just a board game. And even IQ tests only measure certain aspects of your abilities. Use A.C.A.S fairly, be kind to other players.
 
-| [▶️ Open A.C.A.S](https://quantavil.github.io/A.C.A.S/) | [⬇️ Install (GreasyFork)](https://greasyfork.org/en/scripts/583158-acas-bot-advanced-chess-assistance-system)  | [💬 Discuss With Community](https://hakorr.github.io/Userscripts/community/invite)
+| [▶️ Open A.C.A.S](https://quantavil.github.io/A.C.A.S/) | [⬇️ Install OmniChess (GreasyFork)](https://greasyfork.org/en/scripts/583158)  | [💬 Discuss With Community](https://hakorr.github.io/Userscripts/community/invite)
 |-------|-------|-------|
 
 * Many built in WebAssembly engines (faster than JS)

@@ -1,7 +1,7 @@
 # Project: A.C.A.S (Advanced Chess Assistance System)
 
 ## Overview
-A.C.A.S is an open-source, multi-engine, multi-variant chess assistance system. It operates as a web-based UI/GUI communicating with a userscript (located locally at `/home/quantavil/Documents/Project/userscript/ACAS-bot/` and online at [quantavil/userscript](https://github.com/quantavil/userscript/tree/main/ACAS-bot)) that runs in separate tabs of chess websites (e.g., chess.com, lichess.org) via CommLink (cross-window postMessage communication). It supports built-in WASM chess engines (Stockfish, Fairy Stockfish, Lc0, Maia) and external UCI engines via a Node.js/Electron localhost server (`appServer`).
+A.C.A.S is an open-source, multi-engine, multi-variant chess assistance system. It operates as a web-based UI/GUI communicating with the OmniChess userscript (located locally at `/home/quantavil/Documents/Project/userscript/ACAS-bot/` and online at [quantavil/userscript](https://github.com/quantavil/userscript/tree/main/ACAS-bot)) that runs in separate tabs of chess websites (e.g., chess.com, lichess.org) via CommLink (cross-window postMessage communication). It supports built-in WASM chess engines (Stockfish, Fairy Stockfish, Lc0, Maia) and external UCI engines via a Node.js/Electron localhost server (`appServer`).
 
 ## Structure
 A.C.A.S/
@@ -36,6 +36,7 @@ A.C.A.S/
 - Do not run calculations in the main userscript thread to prevent page lag and cheat-detection triggers on chess websites.
 
 ## Insights
+- **Userscript Renaming & Version Bump:** Renamed the userscript from ACAS-bot to OmniChess and bumped the version to 1.0.0, keeping internal database keys and communication APIs intact for compatibility.
 - **Audit & Implementation Findings:** Performed a codebase audit and implemented design realignments:
   - Deleted Stockfish 16 binary assets (`sf16-7.js`/`sf16-7.wasm`/`16-0-worker.js`) to remove bloat, leaving SF 17 and 18 options.
   - Revamped UI styling from gamified blue-gray layout to a premium dark-bone monochromatic dashboard (`#0b0f19`/`#16161a`) with tactile spring click micro-interactions.

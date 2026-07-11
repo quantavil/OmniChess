@@ -154,7 +154,12 @@ async function updateUserscriptInfoText() {
     
         document.title = `A.C.A.S (Using ${userscriptData})`;
     
-        if(GM_info?.script?.version && IS_BELOW_VERSION(GM_info?.script?.version, '2.4.2')) {
+        const name = GM_info?.script?.name || '';
+        const version = GM_info?.script?.version || '';
+        const isOmniChess = name.includes('OmniChess');
+        const minVersion = isOmniChess ? '1.0.0' : '2.4.2';
+
+        if(version && IS_BELOW_VERSION(version, minVersion)) {
             updateYourUserscriptElem.classList.remove('hidden');
         }
         
