@@ -49,25 +49,20 @@ export default async function loadEngine(profileName, engineName, attempt = 0) {
     
     function loadStockfish(folderName, fileName = folderName) {
         const stockfish = new Worker(`../app/assets/engines/${folderName}/${fileName}.js`);
-        let stockfish_loaded = false;
 
-        stockfish.onmessage = async e => {
-            if(!stockfish_loaded) {
-                stockfish_loaded = true;
+        this.engines.push({
+            'type': profileChessEngine,
+            'engine': (method, a) => stockfish[method](...a),
+            'sendMsg': msg => stockfish.postMessage(msg),
+            'worker': stockfish,
+            profileName
+        });
 
-                this.engines.push({
-                    'type': profileChessEngine,
-                    'engine': (method, a) => stockfish[method](...a),
-                    'sendMsg': msg => stockfish.postMessage(msg),
-                    'worker': stockfish,
-                    profileName
-                });
-    
-                startGame.bind(this)();
-            }
-
+        stockfish.onmessage = e => {
             processEngineMessage(e.data);
         };
+
+        startGame.bind(this)();
 
         stockfish.onerror = e => {
             restartEngine.bind(this)(folderName, e);
@@ -309,7 +304,7 @@ export default async function loadEngine(profileName, engineName, attempt = 0) {
             break;
 
         default:
-            loadMaia3.bind(this)();
+            loadStockfish.bind(this)('stockfish-18-lite-single');
             break;
     }
 }

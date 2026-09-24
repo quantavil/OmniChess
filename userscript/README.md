@@ -6,6 +6,9 @@
 
 OmniChess is a modular, high-performance chess assistance userscript that provides real-time strategy visualization, move analysis, and automated move-playing capabilities. It overlays assistance directly on major chess platforms (such as Chess.com and Lichess) and interacts with a centralized engine backend.
 
+* **GreasyFork Install:** [https://greasyfork.org/en/scripts/586665-omnichess](https://greasyfork.org/en/scripts/586665-omnichess)
+* **GitHub Repository:** [https://github.com/quantavil/OmniChess](https://github.com/quantavil/OmniChess)
+
 ---
 
 ## 🌟 Key Enhancements & Changes

@@ -605,8 +605,14 @@ async function GET_PROFILE(profileName) {
 
     } else if(profileObj) {
         profile.config = profileObj;
+    } else if(globalProfileObj) {
+        profile.config = globalProfileObj;
     } else {
-        return false;
+        profile.config = {
+            'engineEnabled': true,
+            'chessEngine': 'stockfish-18-lite-single',
+            'engineElo': 2600
+        };
     }
 
     return profile;
@@ -624,9 +630,11 @@ async function GET_PROFILE_NAMES() {
 
     if(profilesObj) return [...new Set(Object.keys(profilesObj))];
 
-    console.error('Could not find profile names!', { ...SETTING_FILTER_OBJ, gmConfigKey, config });
+    const globalProfilesObj = config?.['global']?.['profiles'];
 
-    return false;
+    if(globalProfilesObj) return [...new Set(Object.keys(globalProfilesObj))];
+
+    return ['default'];
 }
 
 async function GET_PROFILES() {

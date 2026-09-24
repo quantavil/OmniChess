@@ -26,9 +26,31 @@ async function initializeDatabase() {
     const tempValueIndicator = USERSCRIPT_SHARED_VARS.tempValueIndicator;
 
     // add OmniChessConfig value if it doesn't exist already
-    await initDbValue(gmConfigKey, { 'global': { 'chessEngineProfile': 'default' } });
+    await initDbValue(gmConfigKey, {
+        'global': {
+            'chessEngineProfile': 'default',
+            'profiles': {
+                'default': {
+                    'engineEnabled': true,
+                    'chessEngine': 'stockfish-18-lite-single',
+                    'engineElo': 2600
+                }
+            }
+        }
+    });
 
     await MIGRATE_OUTDATED_PROFILE_KEYS(); // migrates old profile keys to new format if necessary
+
+    const currentConfig = await USERSCRIPT.getValue(gmConfigKey);
+    if(currentConfig?.global && !currentConfig.global.profiles?.default) {
+        currentConfig.global.profiles ??= {};
+        currentConfig.global.profiles.default ??= {
+            'engineEnabled': true,
+            'chessEngine': 'stockfish-18-lite-single',
+            'engineElo': 2600
+        };
+        await USERSCRIPT.setValue(gmConfigKey, currentConfig);
+    }
 
     const gmStorageKeys = await USERSCRIPT.listValues();
     const tempValueKeys = gmStorageKeys.filter(key => key.includes(tempValueIndicator));

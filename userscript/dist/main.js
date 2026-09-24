@@ -38,7 +38,7 @@
 // @grant       unsafeWindow
 // @run-at      document-start
 // @version     1.0.0
-// @namespace   https://github.com/quantavil/userscript
+// @namespace   https://github.com/quantavil/OmniChess
 // @license     GPL-3.0
 // ==/UserScript==
 
@@ -213,9 +213,9 @@ function getGmConfigValue(key, instanceID, profileID) {
   if (typeof profileID === "object") {
     profileID = profileID.name;
   }
-  const config2 = GM_getValue(dbValues.OmniChessConfig);
-  const instanceValue = config2?.instance?.[instanceID]?.[key];
-  const globalValue = config2?.global?.[key];
+  const config = GM_getValue(dbValues.OmniChessConfig);
+  const instanceValue = config?.instance?.[instanceID]?.[key];
+  const globalValue = config?.global?.[key];
   if (instanceValue !== undefined) {
     return instanceValue;
   }
@@ -223,8 +223,8 @@ function getGmConfigValue(key, instanceID, profileID) {
     return globalValue;
   }
   if (profileID) {
-    const globalProfileValue = config2?.global?.["profiles"]?.[profileID]?.[key];
-    const instanceProfileValue = config2?.instance?.[instanceID]?.["profiles"]?.[profileID]?.[key];
+    const globalProfileValue = config?.global?.["profiles"]?.[profileID]?.[key];
+    const instanceProfileValue = config?.instance?.[instanceID]?.["profiles"]?.[profileID]?.[key];
     if (instanceProfileValue !== undefined) {
       return instanceProfileValue;
     }
@@ -309,9 +309,9 @@ function extractElemTransformData(elem) {
     return [0, 0];
   }
 }
-function getElemCoordinatesFromTransform(elem, config2) {
-  const onlyFlipX = config2?.onlyFlipX;
-  const onlyFlipY = config2?.onlyFlipY;
+function getElemCoordinatesFromTransform(elem, config) {
+  const onlyFlipX = config?.onlyFlipX;
+  const onlyFlipY = config?.onlyFlipY;
   lastBoardSize = getElementSize(state.chessBoardElem);
   state.lastBoardSize = lastBoardSize;
   const [boardRanks, boardFiles] = state.getBoardDimensions();
@@ -531,8 +531,8 @@ function getSiteData(dataType, obj) {
 }
 function addSupportedChessSite(domains, typeHandlerObj) {
   const domainList = Array.isArray(domains) ? domains : [domains];
-  domainList.forEach((domain2) => {
-    supportedSites[domain2] = typeHandlerObj;
+  domainList.forEach((domain) => {
+    supportedSites[domain] = typeHandlerObj;
   });
 }
 function getBoardElem() {
@@ -2158,17 +2158,17 @@ async function isOmniChessBackendReady() {
   return res ? true : false;
 }
 async function refreshSettings() {
-  const config2 = GM_getValue(dbValues.OmniChessConfig);
-  const profiles = config2?.global?.profiles;
+  const config = GM_getValue(dbValues.OmniChessConfig);
+  const profiles = config?.global?.profiles;
   if (typeof profiles != "object")
     return;
   state.isMovesOnDemandActive = Object.keys(profiles).some((profileName) => profiles[profileName]?.movesOnDemand === true);
 }
 function isBoardDrawerNeeded() {
-  const config2 = GM_getValue(dbValues.OmniChessConfig);
-  const gP = config2?.global?.profiles;
-  const iP = config2?.instance?.[commLinkInstanceID]?.profiles;
-  const isGhost = config2?.global?.[configKeys.isUserscriptGhost];
+  const config = GM_getValue(dbValues.OmniChessConfig);
+  const gP = config?.global?.profiles;
+  const iP = config?.instance?.[commLinkInstanceID]?.profiles;
+  const isGhost = config?.global?.[configKeys.isUserscriptGhost];
   if (isGhost)
     return false;
   const check = (cfg) => Object.values(cfg || {}).some((p) => p[configKeys.displayMovesOnExternalSite] || p[configKeys.renderOnExternalSite] || p[configKeys.feedbackOnExternalSite] || p[configKeys.movesOnDemand]);
@@ -2235,8 +2235,8 @@ function startWhenBackendReady() {
       interval.stop();
     } else if (timesUrlForceOpened === 0 && i % 10 === 0) {
       timesUrlForceOpened++;
-      const config2 = GM_getValue(dbValues.OmniChessConfig);
-      const isGhost = config2?.global?.[configKeys.isUserscriptGhost];
+      const config = GM_getValue(dbValues.OmniChessConfig);
+      const isGhost = config?.global?.[configKeys.isUserscriptGhost];
       const lastForceOpen = GM_getValue("lastForceOpenTime") || 0;
       const now = Date.now();
       if (!isGhost && now - lastForceOpen > 1e4) {

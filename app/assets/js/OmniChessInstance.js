@@ -289,7 +289,13 @@ export default class OmniChessInstance {
 
     async loadEngines() {
         const profiles = await GET_PROFILES();
-        const activeProfiles = profiles.filter(p => p.config.engineEnabled);
+        let activeProfiles = profiles.filter(p => p?.config?.engineEnabled !== false);
+
+        if(activeProfiles.length === 0 && profiles.length > 0) {
+            activeProfiles = [profiles[0]];
+        } else if(activeProfiles.length === 0) {
+            activeProfiles = [{ name: 'default', config: { engineEnabled: true, chessEngine: 'stockfish-18-lite-single', engineElo: 2600 } }];
+        }
 
         for(const profileObj of activeProfiles) {
             await this.createAndLoadSpecificEngine(profileObj.name);
